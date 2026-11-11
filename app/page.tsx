@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Screen } from "@/components/th/screen";
 import { Portrait, type Who } from "@/components/th/characters";
+import { Logo } from "@/components/th/logo";
 import { resetDemo } from "./actions";
 
 const PEOPLE: { href: string; character: Who; who: string; where: string }[] = [
@@ -19,7 +20,7 @@ export default function Start() {
           <Portrait who="mei" mood="joy" size={92} waving />
           <Portrait who="kenji" mood="joy" size={76} />
         </div>
-        <h1 className="text-[40px] font-semibold leading-[1.05] tracking-[-0.02em]">Thought</h1>
+        <h1 aria-label="Thought"><Logo size="lg" /></h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">
           Grandparents far away give the Saturday they&apos;d give in person. Paid with PayPal, in their own currency.
         </p>

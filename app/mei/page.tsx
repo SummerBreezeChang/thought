@@ -30,7 +30,7 @@ async function Shelf() {
     <Screen lang="en" back={{ href: "/", label: "Thought" }}>
       <header className="mb-10 flex flex-col gap-2">
         <Portrait who="mei" mood="joy" size={84} waving />
-        <h1 className="mt-2 text-[34px] font-semibold leading-tight tracking-[-0.02em]">Hi {child.name}</h1>
+        <h1 className="mt-2 font-display text-[34px] leading-tight tracking-[-0.01em]">Hi {child.name}</h1>
         <p className="text-[19px] text-th-label-secondary">
           {givers.length ? "Look who sent you something." : "Nothing here yet. When Grandma or Grandpa sends a gift, it shows up here."}
         </p>

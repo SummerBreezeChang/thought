@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--th-font);
+  --font-display: var(--th-font-display);
   --color-th-bg: var(--th-bg);
   --color-th-surface: var(--th-surface);
   --color-th-surface-pressed: var(--th-surface-pressed);
@@ -62,17 +63,17 @@
 }
 
 :root {
-  /* Thought tokens. Calm, Apple-like neutrals; PayPal blue is the one color moment. */
-  --th-bg: oklch(1 0 0);
-  --th-surface: oklch(0.973 0.002 260);
-  --th-surface-pressed: oklch(0.94 0.003 260);
-  --th-label: oklch(0.21 0.006 260);
-  --th-label-secondary: oklch(0.47 0.01 260);
-  --th-separator: oklch(0.9 0.004 260);
+  /* Thought tokens. Warm paper and soft ink; PayPal blue is the one color moment, the red thread the one accent. */
+  --th-bg: oklch(0.977 0.012 75);
+  --th-surface: oklch(0.952 0.018 68);
+  --th-surface-pressed: oklch(0.925 0.022 64);
+  --th-label: oklch(0.27 0.03 35);
+  --th-label-secondary: oklch(0.46 0.035 40);
+  --th-separator: oklch(0.895 0.02 65);
   --th-paypal: oklch(0.53 0.14 247);
   --th-paypal-pressed: oklch(0.45 0.13 250);
-  --th-on-paypal: oklch(1 0 0);
-  --th-warm: oklch(0.55 0.2 27);
+  --th-on-paypal: oklch(0.99 0.005 75);
+  --th-warm: oklch(0.5 0.15 28);
   --th-focus: oklch(0.6 0.15 250);
   --th-danger: oklch(0.5 0.19 27);
   --th-radius-card: 1.25rem;
@@ -94,7 +95,8 @@
   --th-c-bg-mei: oklch(0.96 0.045 92);
   --th-c-heart: var(--th-warm);
   --th-c-thread: oklch(0.8 0.06 30);
-  --th-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang TC", "Hiragino Sans", "Noto Sans TC", "Noto Sans JP", system-ui, sans-serif;
+  --th-font-display: var(--font-young-serif), "Songti TC", "Hiragino Mincho ProN", "Noto Serif TC", "Noto Serif JP", Georgia, serif;
+  --th-font: var(--font-figtree), -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "PingFang TC", "Hiragino Sans", "Noto Sans TC", "Noto Sans JP", system-ui, sans-serif;
 
   /* shadcn variables, mapped onto our tokens so copied components match. */
   --background: var(--th-bg);
@@ -220,3 +222,7 @@
 }
 
 .th-heart-rise, .th-heart-rise-2, .th-heart-rise-3 { transform-box: fill-box; transform-origin: center; }
+
+/* Japanese headlines take the Japanese serif first, so kana and kanji match. */
+:lang(ja) { --th-font-display: var(--font-young-serif), "Hiragino Mincho ProN", "Noto Serif JP", Georgia, serif; }
+

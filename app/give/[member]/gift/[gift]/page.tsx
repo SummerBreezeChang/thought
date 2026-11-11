@@ -48,7 +48,7 @@ async function Gift({ params, searchParams }: { params: Params; searchParams: Se
       <header className="mb-8 flex flex-col gap-5">
         <GiftIcon category={item.category} size="lg" />
         <div className="flex flex-col gap-2">
-          <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">{item.title[lang]}</h1>
+          <h1 className="font-display text-[34px] leading-tight tracking-[-0.01em]">{item.title[lang]}</h1>
           <p className="text-[19px] leading-snug text-th-label-secondary">{item.why[lang]}</p>
         </div>
         <p className="text-[17px] tabular-nums">{formatShort({ minor: item.priceUsdCents, currency: "USD" }, member.culture)}</p>

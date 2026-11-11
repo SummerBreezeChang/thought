@@ -38,7 +38,7 @@ async function Sent({ params }: { params: Params }) {
       <div className="flex flex-1 flex-col items-center justify-center gap-6 pt-12 text-center">
         <Journey from={characterFor(member.id) ?? "chen"} to="mei" fromLabel={member.title} toLabel={child.name} />
         <div className="flex flex-col gap-2">
-          <h1 className="text-[40px] font-semibold leading-tight tracking-[-0.02em]">{c.sent}</h1>
+          <h1 className="font-display text-[40px] leading-tight tracking-[-0.01em]">{c.sent}</h1>
           <p className="text-[19px] leading-snug text-th-label-secondary">{c.seeTomorrow(child.name)}</p>
         </div>
         {item ? <p className="text-[17px]">{item.title[langFor(member.culture)]}</p> : null}

@@ -52,7 +52,7 @@ async function Home({ params }: { params: Promise<{ member: string }> }) {
       <header className="mb-10 flex items-center gap-4">
         <Portrait who="mei" size={72} mood={thanks.some((x) => !x.watchedAt) ? "joy" : "smile"} />
         <div>
-          <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">{c.forChild(child.name)}</h1>
+          <h1 className="font-display text-[34px] leading-tight tracking-[-0.01em]">{c.forChild(child.name)}</h1>
           <p className="text-[17px] text-th-label-secondary">{c.childLine(ageYears, CITY_LABEL[family.area]?.[lang] ?? family.area)}</p>
         </div>
       </header>

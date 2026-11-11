@@ -123,7 +123,7 @@ export function VideoRecorder({ contributionId, giver, giverWho, cloud }: { cont
       <div className="flex flex-col items-center gap-6 pt-6 text-center" role="status">
         <Journey from="mei" to={giverWho} fromLabel="Mei" toLabel={giver} />
         <div className="flex flex-col gap-2">
-          <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.01em]">Sent to {giver}</h2>
+          <h2 className="font-display text-[28px] leading-tight">Sent to {giver}</h2>
           <p className="text-[19px] leading-snug text-th-label-secondary">{giver} will see it the next time they open Thought.</p>
         </div>
         <video src={clip?.url} controls playsInline className="aspect-[3/4] w-48 rounded-card bg-th-label object-cover" />
