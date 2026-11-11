@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import { BAY_AREA_CATALOG } from "@/server/catalog/bay-area";
-import { store } from "@/server/store/store";
+import { store, usesBlob } from "@/server/store/store";
 import { Loading, Screen } from "@/components/th/screen";
 import { VideoRecorder } from "@/components/th/video-recorder";
 import { memberName } from "@/lib/family";
@@ -31,7 +31,7 @@ async function Thanks({ params }: { params: Params }) {
         <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">Say thank you to {giver}</h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">For {item.title.en.toLowerCase()}. Tell them what you loved.</p>
       </header>
-      <VideoRecorder contributionId={c.id} giver={giver} />
+      <VideoRecorder contributionId={c.id} giver={giver} cloud={usesBlob()} />
     </Screen>
   );
 }

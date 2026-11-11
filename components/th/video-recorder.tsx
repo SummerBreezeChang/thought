@@ -2,12 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { upload } from "@vercel/blob/client";
 import { Circle, CircleCheck, RotateCcw, Square } from "lucide-react";
 
 type Phase = "asking" | "ready" | "recording" | "review" | "sending" | "sent" | "blocked" | "error";
 
 /** Record a short video thank-you in the browser and send it to the grandparent. */
-export function VideoRecorder({ contributionId, giver }: { contributionId: string; giver: string }) {
+export function VideoRecorder({ contributionId, giver, cloud }: { contributionId: string; giver: string; cloud: boolean }) {
   const live = useRef<HTMLVideoElement>(null);
   const stream = useRef<MediaStream | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
@@ -76,11 +77,33 @@ export function VideoRecorder({ contributionId, giver }: { contributionId: strin
   async function send() {
     if (!clip) return;
     setPhase("sending");
-    const form = new FormData();
-    form.append("contribution", contributionId);
-    form.append("caption", caption);
-    form.append("video", clip.blob);
-    const res = await fetch("/api/thanks", { method: "POST", body: form });
+    let res: Response;
+    try {
+      if (cloud) {
+        // Hosted: send the video straight to storage, then tell the server where it is.
+        const mimeType = clip.blob.type || "video/webm";
+        const ext = mimeType.startsWith("video/mp4") ? "mp4" : "webm";
+        const stored = await upload(`thanks/${contributionId}.${ext}`, clip.blob, {
+          access: "private",
+          handleUploadUrl: "/api/thanks/upload",
+          clientPayload: contributionId,
+          contentType: mimeType.split(";")[0],
+        });
+        res = await fetch("/api/thanks", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ contribution: contributionId, caption, pathname: stored.pathname, mimeType }),
+        });
+      } else {
+        const form = new FormData();
+        form.append("contribution", contributionId);
+        form.append("caption", caption);
+        form.append("video", clip.blob);
+        res = await fetch("/api/thanks", { method: "POST", body: form });
+      }
+    } catch {
+      return setPhase("error");
+    }
     if (!res.ok) return setPhase("error");
     stream.current?.getTracks().forEach((t) => t.stop());
     setPhase("sent");

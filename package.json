@@ -15,6 +15,7 @@
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@paypal/agent-toolkit": "^1.11.0",
+    "@vercel/blob": "^2.9.0",
     "ai": "^6.0.323",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.4.0",
