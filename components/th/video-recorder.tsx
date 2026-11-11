@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { upload } from "@vercel/blob/client";
-import { Circle, CircleCheck, RotateCcw, Square } from "lucide-react";
+import { Circle, RotateCcw, Square } from "lucide-react";
+import { Journey, type Who } from "./characters";
 
 type Phase = "asking" | "ready" | "recording" | "review" | "sending" | "sent" | "blocked" | "error";
 
 /** Record a short video thank-you in the browser and send it to the grandparent. */
-export function VideoRecorder({ contributionId, giver, cloud }: { contributionId: string; giver: string; cloud: boolean }) {
+export function VideoRecorder({ contributionId, giver, giverWho, cloud }: { contributionId: string; giver: string; giverWho: Who; cloud: boolean }) {
   const live = useRef<HTMLVideoElement>(null);
   const stream = useRef<MediaStream | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);
@@ -120,7 +121,7 @@ export function VideoRecorder({ contributionId, giver, cloud }: { contributionId
   if (phase === "sent") {
     return (
       <div className="flex flex-col items-center gap-6 pt-6 text-center" role="status">
-        <CircleCheck className="size-16 text-th-warm" aria-hidden />
+        <Journey from="mei" to={giverWho} fromLabel="Mei" toLabel={giver} />
         <div className="flex flex-col gap-2">
           <h2 className="text-[28px] font-semibold leading-tight tracking-[-0.01em]">Sent to {giver}</h2>
           <p className="text-[19px] leading-snug text-th-label-secondary">{giver} will see it the next time they open Thought.</p>

@@ -7,7 +7,8 @@ import { DEMO } from "@/server/demo/family";
 import { store } from "@/server/store/store";
 import { isPaid } from "@/server/store/goals";
 import { GiftIcon } from "@/components/th/gift-icon";
-import { Loading, Monogram, Screen, SectionTitle } from "@/components/th/screen";
+import { Loading, Screen, SectionTitle } from "@/components/th/screen";
+import { Avatar, Portrait } from "@/components/th/characters";
 import { memberName } from "@/lib/family";
 
 export default function Page() {
@@ -28,7 +29,8 @@ async function Shelf() {
   return (
     <Screen lang="en" back={{ href: "/", label: "Thought" }}>
       <header className="mb-10 flex flex-col gap-2">
-        <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">Hi {child.name}</h1>
+        <Portrait who="mei" mood="joy" size={84} waving />
+        <h1 className="mt-2 text-[34px] font-semibold leading-tight tracking-[-0.02em]">Hi {child.name}</h1>
         <p className="text-[19px] text-th-label-secondary">
           {givers.length ? "Look who sent you something." : "Nothing here yet. When Grandma or Grandpa sends a gift, it shows up here."}
         </p>
@@ -49,7 +51,7 @@ async function Shelf() {
                   </div>
                   {p.message ? (
                     <blockquote className="flex gap-3">
-                      <Monogram name={memberName(g)} />
+                      <Avatar memberId={g} name={memberName(g)} size={44} />
                       <p className="flex-1 pt-2 text-[19px] leading-snug">{p.message}</p>
                     </blockquote>
                   ) : null}

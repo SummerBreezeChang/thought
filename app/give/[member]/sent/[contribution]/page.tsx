@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
-import { Check } from "lucide-react";
+import { Journey, characterFor } from "@/components/th/characters";
 import { BAY_AREA_CATALOG } from "@/server/catalog/bay-area";
 import { format, formatRate, formatShort } from "@/server/money/money";
 import { store } from "@/server/store/store";
@@ -36,9 +36,7 @@ async function Sent({ params }: { params: Params }) {
   return (
     <Screen lang={member.culture}>
       <div className="flex flex-1 flex-col items-center justify-center gap-6 pt-12 text-center">
-        <span aria-hidden className="grid size-20 place-items-center rounded-full bg-th-label text-th-bg">
-          <Check className="size-10" strokeWidth={2.4} />
-        </span>
+        <Journey from={characterFor(member.id) ?? "chen"} to="mei" fromLabel={member.title} toLabel={child.name} />
         <div className="flex flex-col gap-2">
           <h1 className="text-[40px] font-semibold leading-tight tracking-[-0.02em]">{c.sent}</h1>
           <p className="text-[19px] leading-snug text-th-label-secondary">{c.seeTomorrow(child.name)}</p>

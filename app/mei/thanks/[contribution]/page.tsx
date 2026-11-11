@@ -5,6 +5,7 @@ import { BAY_AREA_CATALOG } from "@/server/catalog/bay-area";
 import { store, usesBlob } from "@/server/store/store";
 import { Loading, Screen } from "@/components/th/screen";
 import { VideoRecorder } from "@/components/th/video-recorder";
+import { characterFor } from "@/components/th/characters";
 import { memberName } from "@/lib/family";
 
 type Params = Promise<{ contribution: string }>;
@@ -31,7 +32,7 @@ async function Thanks({ params }: { params: Params }) {
         <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">Say thank you to {giver}</h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">For {item.title.en.toLowerCase()}. Tell them what you loved.</p>
       </header>
-      <VideoRecorder contributionId={c.id} giver={giver} cloud={usesBlob()} />
+      <VideoRecorder contributionId={c.id} giver={giver} giverWho={characterFor(c.memberId) ?? "chen"} cloud={usesBlob()} />
     </Screen>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { markThankYouWatched } from "@/app/actions";
+import { Portrait, RisingHearts } from "./characters";
 
 /** One video thank-you on a grandparent's home. "New" until they press play. */
 export function ThankYouCard({
@@ -29,14 +30,20 @@ export function ThankYouCard({
 
   return (
     <li className="overflow-hidden rounded-card bg-th-surface">
-      <div className="flex items-center gap-2 px-4 py-3">
-        {unseen ? (
-          <span className="flex items-center gap-1.5 text-[15px] font-semibold text-th-warm">
-            <span className="size-2 rounded-full bg-th-warm" aria-hidden />
-            {newLabel}
-          </span>
-        ) : null}
-        <p className="flex-1 text-[17px] font-medium leading-snug">{title}</p>
+      <div className="flex items-center gap-3 px-4 py-3">
+        <svg viewBox="0 0 64 64" className="size-14 shrink-0 overflow-visible" aria-hidden>
+          <Portrait who="mei" mood="joy" size={56} x={0} y={8} waving={unseen} />
+          {unseen ? <RisingHearts x={54} y={14} scale={0.85} /> : null}
+        </svg>
+        <div className="flex flex-1 flex-col gap-0.5">
+          {unseen ? (
+            <span className="flex items-center gap-1.5 text-[15px] font-semibold text-th-warm">
+              <span className="size-2 rounded-full bg-th-warm" aria-hidden />
+              {newLabel}
+            </span>
+          ) : null}
+          <p className="text-[17px] font-medium leading-snug">{title}</p>
+        </div>
       </div>
       <video
         controls

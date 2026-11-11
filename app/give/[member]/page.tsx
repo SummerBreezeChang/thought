@@ -10,7 +10,8 @@ import { giftStatus, isPaid } from "@/server/store/goals";
 import { format, formatShort } from "@/server/money/money";
 import { GiftIcon } from "@/components/th/gift-icon";
 import { Progress } from "@/components/th/progress";
-import { Loading, Monogram, Screen, SectionTitle } from "@/components/th/screen";
+import { Loading, Screen, SectionTitle } from "@/components/th/screen";
+import { Portrait } from "@/components/th/characters";
 import { AskBox } from "@/components/th/ask-box";
 import { ThankYouCard } from "@/components/th/thank-you-card";
 import { CITY_LABEL, familyOf, getMember } from "@/lib/family";
@@ -49,7 +50,7 @@ async function Home({ params }: { params: Promise<{ member: string }> }) {
   return (
     <Screen lang={member.culture} back={{ href: "/", label: "Thought" }}>
       <header className="mb-10 flex items-center gap-4">
-        <Monogram name={child.name} size="lg" />
+        <Portrait who="mei" size={72} mood={thanks.some((x) => !x.watchedAt) ? "joy" : "smile"} />
         <div>
           <h1 className="text-[34px] font-semibold leading-tight tracking-[-0.02em]">{c.forChild(child.name)}</h1>
           <p className="text-[17px] text-th-label-secondary">{c.childLine(ageYears, CITY_LABEL[family.area]?.[lang] ?? family.area)}</p>

@@ -6,7 +6,8 @@ import { giftStatus } from "@/server/store/goals";
 import { GiftIcon } from "@/components/th/gift-icon";
 import { Progress } from "@/components/th/progress";
 import { AmountPicker } from "@/components/th/amount-picker";
-import { Loading, Monogram, Screen, SectionTitle } from "@/components/th/screen";
+import { Loading, Screen, SectionTitle } from "@/components/th/screen";
+import { Avatar, Together, characterFor, type Who } from "@/components/th/characters";
 import { familyOf, getMember, memberName } from "@/lib/family";
 import { langFor, t } from "@/lib/i18n";
 import { amountOptions } from "@/lib/offer";
@@ -61,13 +62,19 @@ async function Gift({ params, searchParams }: { params: Params; searchParams: Se
 
       {givers.length > 0 ? (
         <section className="mb-10 flex flex-col gap-4">
+          {progress.funded ? (
+            <Together
+              givers={[...new Set(givers.map((g) => characterFor(g.memberId)).filter((w): w is Who => w !== undefined))]}
+              label={c.funded}
+            />
+          ) : null}
           <Progress share={progress.share} label={progress.funded ? c.funded : c.percentThere(Math.round(progress.share * 100))} />
           <div>
             <SectionTitle>{c.givenBy}</SectionTitle>
             <ul className="flex flex-col gap-3">
               {givers.map((g) => (
                 <li key={g.id} className="flex items-center gap-3">
-                  <Monogram name={memberName(g.memberId)} />
+                  <Avatar memberId={g.memberId} name={memberName(g.memberId)} size={44} mood={progress.funded ? "joy" : "smile"} />
                   <span className="flex-1 text-[17px]">{g.memberId === member.id ? c.you : memberName(g.memberId)}</span>
                   <span className="text-[15px] tabular-nums text-th-label-secondary">{format({ minor: g.amountMinor, currency: g.currency }, member.culture)}</span>
                 </li>
