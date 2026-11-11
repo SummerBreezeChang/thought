@@ -35,8 +35,10 @@ export interface ThankYou {
   /** Caption translated into the giver's language, when AI is set up. */
   captionTranslated?: string;
   createdAt: string;
-  /** First time the grandparent pressed play. Unset means "New". */
-  watchedAt?: string;
+  /** Caption translated for each giver, in their language and with the name Mei calls them. */
+  captionByMember?: Record<string, string>;
+  /** Givers who have pressed play. Anyone not listed still sees "New". */
+  watchedBy?: string[];
 }
 
 interface Data {
@@ -114,10 +116,10 @@ export const store = {
   addThankYou(t: ThankYou) {
     return update((d) => void d.thankYous.push(t));
   },
-  markWatched(id: string) {
+  markWatched(id: string, memberId: string) {
     return update((d) => {
       const t = d.thankYous.find((x) => x.id === id);
-      if (t && !t.watchedAt) t.watchedAt = new Date().toISOString();
+      if (t && !t.watchedBy?.includes(memberId)) t.watchedBy = [...(t.watchedBy ?? []), memberId];
     });
   },
   reset() {

@@ -44,13 +44,16 @@ async function Home({ params }: { params: Promise<{ member: string }> }) {
     .sort((a, b) => Number(hints.includes("movie") && b.category === "outing") - Number(hints.includes("movie") && a.category === "outing"))
     .slice(0, 3);
 
-  const myGiftIds = new Set(contributions.filter((x) => x.memberId === member.id).map((x) => x.id));
-  const thanks = (await store.thankYous()).filter((x) => myGiftIds.has(x.contributionId)).reverse();
+  // One thank-you per gift reaches everyone who gave to it.
+  const giftOf = (contributionId: string) => contributions.find((x) => x.id === contributionId)?.giftId;
+  const myGifts = new Set(contributions.filter((x) => x.memberId === member.id).map((x) => x.giftId));
+  const thanks = (await store.thankYous()).filter((x) => myGifts.has(giftOf(x.contributionId) ?? "")).reverse();
+  const isNew = (ty: (typeof thanks)[number]) => !ty.watchedBy?.includes(member.id);
 
   return (
     <Screen lang={member.culture} back={{ href: "/", label: "Thought" }}>
       <header className="mb-10 flex items-center gap-4">
-        <Portrait who="mei" size={72} mood={thanks.some((x) => !x.watchedAt) ? "joy" : "smile"} />
+        <Portrait who="mei" size={72} mood={thanks.some(isNew) ? "joy" : "smile"} />
         <div>
           <h1 className="font-display text-[34px] leading-tight tracking-[-0.01em]">{c.forChild(child.name)}</h1>
           <p className="text-[17px] text-th-label-secondary">{c.childLine(ageYears, CITY_LABEL[family.area]?.[lang] ?? family.area)}</p>
@@ -62,15 +65,17 @@ async function Home({ params }: { params: Promise<{ member: string }> }) {
           <SectionTitle>{c.fromChild(child.name)}</SectionTitle>
           <ul className="flex flex-col gap-4">
             {thanks.map((ty) => {
-              const gift = BAY_AREA_CATALOG.find((i) => i.id === contributions.find((x) => x.id === ty.contributionId)?.giftId);
+              const gift = BAY_AREA_CATALOG.find((i) => i.id === giftOf(ty.contributionId));
+              const mine = ty.captionByMember?.[member.id] ?? ty.captionTranslated;
               return (
                 <ThankYouCard
                   key={ty.id}
                   id={ty.id}
                   title={c.thanksFor(gift?.title[lang] ?? "")}
-                  caption={ty.caption ? (ty.captionTranslated ?? ty.caption) : undefined}
-                  original={ty.captionTranslated ? ty.caption : undefined}
-                  isNew={!ty.watchedAt}
+                  caption={ty.caption ? (mine ?? ty.caption) : undefined}
+                  original={mine ? ty.caption : undefined}
+                  isNew={isNew(ty)}
+                  memberId={member.id}
                   newLabel={c.newLabel}
                 />
               );

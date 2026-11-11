@@ -72,13 +72,21 @@ async function Gift({ params, searchParams }: { params: Params; searchParams: Se
           <div>
             <SectionTitle>{c.givenBy}</SectionTitle>
             <ul className="flex flex-col gap-3">
-              {givers.map((g) => (
-                <li key={g.id} className="flex items-center gap-3">
-                  <Avatar memberId={g.memberId} name={memberName(g.memberId)} size={44} mood={progress.funded ? "joy" : "smile"} />
-                  <span className="flex-1 text-[17px]">{g.memberId === member.id ? c.you : memberName(g.memberId)}</span>
-                  <span className="text-[15px] tabular-nums text-th-label-secondary">{format({ minor: g.amountMinor, currency: g.currency }, member.culture)}</span>
-                </li>
-              ))}
+              {/* Together, not a scoreboard: you see your own amount, and only that others joined. */}
+              {[...new Set(givers.map((g) => g.memberId))].map((id) => {
+                const mine = givers.filter((g) => g.memberId === id && g.memberId === member.id);
+                return (
+                  <li key={id} className="flex items-center gap-3">
+                    <Avatar memberId={id} name={memberName(id)} size={44} mood={progress.funded ? "joy" : "smile"} />
+                    <span className="flex-1 text-[17px]">{id === member.id ? c.you : memberName(id)}</span>
+                    <span className="text-[15px] tabular-nums text-th-label-secondary">
+                      {mine.length
+                        ? format({ minor: mine.reduce((sum, g) => sum + g.amountMinor, 0), currency: mine[0]!.currency }, member.culture)
+                        : c.joined}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </section>

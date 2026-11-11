@@ -9,7 +9,7 @@ import { Journey, type Who } from "./characters";
 type Phase = "asking" | "ready" | "recording" | "review" | "sending" | "sent" | "blocked" | "error";
 
 /** Record a short video thank-you in the browser and send it to the grandparent. */
-export function VideoRecorder({ contributionId, giver, giverWho, cloud }: { contributionId: string; giver: string; giverWho: Who; cloud: boolean }) {
+export function VideoRecorder({ contributionId, giver, giverWho, cloud }: { contributionId: string; giver: string; giverWho: Who[]; cloud: boolean }) {
   const live = useRef<HTMLVideoElement>(null);
   const stream = useRef<MediaStream | null>(null);
   const recorder = useRef<MediaRecorder | null>(null);

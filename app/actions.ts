@@ -89,8 +89,9 @@ export async function startPayment(formData: FormData) {
 }
 
 /** The grandparent pressed play on a thank-you: it's no longer "New". */
-export async function markThankYouWatched(id: string) {
-  await store.markWatched(id);
+export async function markThankYouWatched(id: string, memberId: string) {
+  if (!getMember(memberId)) return;
+  await store.markWatched(id, memberId);
 }
 
 export async function resetDemo() {

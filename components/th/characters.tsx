@@ -220,13 +220,21 @@ export function RisingHearts({ x, y, scale = 1 }: { x: number; y: number; scale?
  * with a little lift of hearts. Used when a gift is sent and when a thank-you
  * goes back. With reduced motion, both people and the thread show, still.
  */
-export function Journey({ from, to, fromLabel, toLabel }: { from: Who; to: Who; fromLabel: string; toLabel: string }) {
+export function Journey({ from, to, fromLabel, toLabel }: { from: Who; to: Who | Who[]; fromLabel: string; toLabel: string }) {
+  const receivers = (Array.isArray(to) ? to : [to]).slice(0, 2);
   const path = "M64 58C112 6 208 6 256 58";
   return (
     <svg viewBox="0 0 320 112" className="w-full max-w-[22rem]" role="img" aria-label={`${fromLabel} → ${toLabel}`}>
       <path d={path} fill="none" stroke="var(--th-c-thread)" strokeWidth={2} strokeLinecap="round" strokeDasharray="1 7" />
       <Portrait who={from} mood="smile" size={72} x={0} y={30} />
-      <Portrait who={to} mood="joy" size={72} x={248} y={30} />
+      {receivers.length === 1 ? (
+        <Portrait who={receivers[0]!} mood="joy" size={72} x={248} y={30} />
+      ) : (
+        <>
+          <Portrait who={receivers[0]!} mood="joy" size={60} x={222} y={40} />
+          <Portrait who={receivers[1]!} mood="joy" size={60} x={260} y={40} />
+        </>
+      )}
       <g className="th-moving">
         <g opacity={0}>
           <path d={HEART} fill={C.heart} transform="scale(1.6)" />

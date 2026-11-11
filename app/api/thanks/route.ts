@@ -4,17 +4,26 @@ import path from "node:path";
 import { DATA_DIR, store } from "@/server/store/store";
 import { translateForGrandparent } from "@/server/agent/translate";
 import { getMember } from "@/lib/family";
+import { giftGivers } from "@/server/store/goals";
 
 const MAX_BYTES = 40 * 1024 * 1024;
 
-async function translated(caption: string, memberId: string) {
-  try {
-    const giver = getMember(memberId);
-    return await translateForGrandparent(caption, giver?.culture ?? "en-US", giver?.title);
-  } catch (e) {
-    console.error("Translation failed; keeping the original caption", e);
-    return undefined;
-  }
+/** Mei's words for each grandparent who gave to this gift, in their language. */
+async function translations(caption: string, giftId: string) {
+  const out: Record<string, string> = {};
+  if (!caption.trim()) return out;
+  await Promise.all(
+    (await giftGivers(giftId)).map(async (memberId) => {
+      const giver = getMember(memberId);
+      try {
+        const text = await translateForGrandparent(caption, giver?.culture ?? "en-US", giver?.title);
+        if (text) out[memberId] = text;
+      } catch (e) {
+        console.error("Translation failed; keeping the original caption", e);
+      }
+    }),
+  );
+  return out;
 }
 
 export async function POST(req: Request) {
@@ -27,8 +36,8 @@ export async function POST(req: Request) {
     const caption = String(body.caption ?? "").slice(0, 300);
     const mimeType = body.mimeType?.startsWith("video/mp4") ? "video/mp4" : "video/webm";
     const id = `t-${randomUUID()}`;
-    const captionTranslated = await translated(caption, c.memberId);
-    await store.addThankYou({ id, contributionId: c.id, videoFile: "", blobPathname: pathname, mimeType, caption, captionTranslated, createdAt: new Date().toISOString() });
+    const captionByMember = await translations(caption, c.giftId);
+    await store.addThankYou({ id, contributionId: c.id, videoFile: "", blobPathname: pathname, mimeType, caption, captionByMember, createdAt: new Date().toISOString() });
     return Response.json({ id });
   }
 
@@ -47,7 +56,7 @@ export async function POST(req: Request) {
   await mkdir(path.join(DATA_DIR, "videos"), { recursive: true });
   await writeFile(path.join(DATA_DIR, "videos", file), Buffer.from(await video.arrayBuffer()));
 
-  const captionTranslated = await translated(caption, c.memberId);
-  await store.addThankYou({ id, contributionId, videoFile: file, mimeType, caption, captionTranslated, createdAt: new Date().toISOString() });
+  const captionByMember = await translations(caption, c.giftId);
+  await store.addThankYou({ id, contributionId, videoFile: file, mimeType, caption, captionByMember, createdAt: new Date().toISOString() });
   return Response.json({ id });
 }

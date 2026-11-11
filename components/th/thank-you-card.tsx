@@ -12,6 +12,7 @@ export function ThankYouCard({
   original,
   isNew,
   newLabel,
+  memberId,
 }: {
   id: string;
   title: string;
@@ -19,13 +20,14 @@ export function ThankYouCard({
   original?: string;
   isNew: boolean;
   newLabel: string;
+  memberId: string;
 }) {
   const [unseen, setUnseen] = useState(isNew);
 
   function onPlay() {
     if (!unseen) return;
     setUnseen(false);
-    void markThankYouWatched(id);
+    void markThankYouWatched(id, memberId);
   }
 
   return (

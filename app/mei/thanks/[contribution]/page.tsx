@@ -5,7 +5,8 @@ import { BAY_AREA_CATALOG } from "@/server/catalog/bay-area";
 import { store, usesBlob } from "@/server/store/store";
 import { Loading, Screen } from "@/components/th/screen";
 import { VideoRecorder } from "@/components/th/video-recorder";
-import { characterFor } from "@/components/th/characters";
+import { characterFor, type Who } from "@/components/th/characters";
+import { giftGivers } from "@/server/store/goals";
 import { memberName } from "@/lib/family";
 
 type Params = Promise<{ contribution: string }>;
@@ -24,7 +25,11 @@ async function Thanks({ params }: { params: Params }) {
   const c = await store.contribution(id);
   const item = c ? BAY_AREA_CATALOG.find((i) => i.id === c.giftId) : undefined;
   if (!c || !item) notFound();
-  const giver = memberName(c.memberId);
+  // The thank-you goes to everyone who gave to this gift.
+  const givers = await giftGivers(c.giftId);
+  const n = givers.map(memberName);
+  const giver = n.length < 3 ? n.join(" and ") : `${n.slice(0, -1).join(", ")} and ${n.at(-1)}`;
+  const giverWho = givers.map(characterFor).filter((w): w is Who => w !== undefined);
 
   return (
     <Screen lang="en" back={{ href: "/mei", label: "Gifts" }}>
@@ -32,7 +37,7 @@ async function Thanks({ params }: { params: Params }) {
         <h1 className="font-display text-[34px] leading-tight tracking-[-0.01em]">Say thank you to {giver}</h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">For {item.title.en.toLowerCase()}. Tell them what you loved.</p>
       </header>
-      <VideoRecorder contributionId={c.id} giver={giver} giverWho={characterFor(c.memberId) ?? "chen"} cloud={usesBlob()} />
+      <VideoRecorder contributionId={c.id} giver={giver} giverWho={giverWho.length ? giverWho : ["chen"]} cloud={usesBlob()} />
     </Screen>
   );
 }

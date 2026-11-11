@@ -16,6 +16,12 @@ export interface GiftStatus {
   givers: Contribution[];
 }
 
+/** Everyone who paid toward a gift, once each, in the order they joined. */
+export async function giftGivers(giftId: string): Promise<string[]> {
+  const paid = (await store.contributions()).filter((c) => c.giftId === giftId && isPaid(c));
+  return [...new Set(paid.map((c) => c.memberId))];
+}
+
 /** Every gift is a goal of its catalog price, funded by paid contributions. */
 export async function giftStatus(giftId: string): Promise<GiftStatus | undefined> {
   const item = BAY_AREA_CATALOG.find((i) => i.id === giftId);
