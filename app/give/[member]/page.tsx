@@ -122,7 +122,7 @@ async function Home({ params }: { params: Promise<{ member: string }> }) {
         </ul>
       </section>
 
-      <AskBox memberId={member.id} placeholder={c.askPlaceholder} button={c.ask} />
+      <AskBox memberId={member.id} placeholder={c.askPlaceholder} button={c.ask} presets={c.presets} />
     </Screen>
   );
 }

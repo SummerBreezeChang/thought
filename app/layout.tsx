@@ -7,7 +7,7 @@ const youngSerif = Young_Serif({ subsets: ["latin"], weight: "400", variable: "-
 
 export const metadata: Metadata = {
   title: "Thought",
-  description: "Grandparents abroad give their grandkids the care they'd give in person, paid with PayPal.",
+  description: "Thoughtful gifts from grandparents abroad: real experiences for their US grandkids, paid with PayPal in their own currency.",
 };
 
 export const viewport: Viewport = {

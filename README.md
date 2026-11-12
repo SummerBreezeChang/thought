@@ -1,8 +1,10 @@
 # Thought
 
-**Grandma got you Saturday.**
+**Thoughtful gifts from grandparents abroad.**
 
-Thought lets grandparents who live abroad give their grandkids real experiences, like a Saturday at the movies, a year at the Exploratorium or swim lessons. They pay through PayPal in their own currency and see every fee. The child answers with a video thank-you, translated for each grandparent.
+Millions of kids in the US have grandparents in another country. Today those grandparents wire money: a bank form, fees nobody explains, and they never see what it bought.
+
+Thought turns that wire into a thoughtful gift. A grandmother in Taipei opens Thought in Chinese. AI suggests gifts that fit her grandchild's age and city: dinner delivered when the family is sick or has a new baby, a sitter night for tired parents, a museum year, swim lessons, a week of camp. She pays in her own currency through PayPal and sees every fee, before and after. Grandparents in different countries can give together, without anyone comparing amounts. Then the child sends a video thank-you, translated for each grandparent.
 
 Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no real money moves.
 
@@ -156,7 +158,7 @@ Money is always integer minor units. TWD and JPY have no decimals.
 ## Honest limits
 
 - **Sandbox only.** Payments go to Thought's sandbox business account. Real families would need PayPal payouts to each family.
-- **The gift catalog is curated, not connected.** DoorDash, Babylist, the museums and swim schools appear with real prices and links, but Thought doesn't call their APIs: Babylist has no public API, and DoorDash's gift cards aren't sold through an API. Today the money funds the family; booking the gift for them is next.
+- **Gifts are curated suggestions, not bookings.** Thought suggests gift types that fit the child's age and city (dinner for a tired week, a sitter night, a museum year, classes, camp) with typical Bay Area prices. The money funds the family, and the parent books it. Buying gift cards and bookings directly through partner APIs is next.
 - **One demo family.** There's no sign-up, parent setup or invites yet.
 - **PayPal's checkout language** follows the buyer's PayPal account, even though Thought passes the grandparent's locale.
 

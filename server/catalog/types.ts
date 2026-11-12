@@ -39,6 +39,8 @@ export interface CatalogItem {
   fulfillment: Fulfillment;
   provider: string;
   sourceUrl: string;
+  /** What exactly is bought, from the provider's own page (e.g. "eGift by email, $15–$500"). */
+  offer?: string;
   /** False until someone re-checks the price on the source page. */
   priceVerified: boolean;
 }

@@ -6,19 +6,21 @@ import { ArrowUp } from "lucide-react";
 type State = { kind: "idle" } | { kind: "loading" } | { kind: "answer"; text: string } | { kind: "error"; text: string };
 
 /** One question to the AI gift helper, answered in the grandparent's language. */
-export function AskBox({ memberId, placeholder, button }: { memberId: string; placeholder: string; button: string }) {
+export function AskBox({ memberId, placeholder, button, presets = [] }: { memberId: string; placeholder: string; button: string; presets?: string[] }) {
   const [q, setQ] = useState("");
   const [state, setState] = useState<State>({ kind: "idle" });
 
-  async function ask(e: React.FormEvent) {
-    e.preventDefault();
-    if (!q.trim()) return;
+  async function ask(e?: React.FormEvent, preset?: string) {
+    e?.preventDefault();
+    const question = preset ?? q;
+    if (!question.trim()) return;
+    if (preset) setQ(preset);
     setState({ kind: "loading" });
     try {
       const res = await fetch("/api/concierge", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ memberId, question: q }),
+        body: JSON.stringify({ memberId, question }),
       });
       const json = (await res.json()) as { text?: string; error?: string };
       setState(json.text ? { kind: "answer", text: json.text } : { kind: "error", text: json.error ?? "…" });
@@ -29,6 +31,22 @@ export function AskBox({ memberId, placeholder, button }: { memberId: string; pl
 
   return (
     <section className="flex flex-col gap-4">
+      {presets.length ? (
+        <ul className="flex flex-wrap gap-2">
+          {presets.map((p) => (
+            <li key={p}>
+              <button
+                type="button"
+                onClick={() => ask(undefined, p)}
+                disabled={state.kind === "loading"}
+                className="min-h-11 rounded-full border border-th-separator bg-th-bg px-4 text-[15px] hover:bg-th-surface-pressed disabled:opacity-40"
+              >
+                {p}
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : null}
       <form onSubmit={ask} className="flex items-center gap-2 rounded-full bg-th-surface p-1.5 pl-5 focus-within:outline focus-within:outline-3 focus-within:outline-th-focus">
         <label className="sr-only" htmlFor="ask">{placeholder}</label>
         <input

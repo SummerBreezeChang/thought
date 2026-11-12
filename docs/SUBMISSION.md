@@ -10,7 +10,11 @@ Thought
 
 ## Tagline
 
-Grandma got you Saturday. Grandparents abroad give real experiences through PayPal, and the kids say thank you on video.
+Thoughtful gifts from grandparents abroad.
+
+## Elevator pitch (30 seconds)
+
+Millions of kids in the US have grandparents in another country, and today those grandparents wire money: a bank form, fees nobody explains, and they never see what it bought. Thought turns that wire into a thoughtful gift. A grandmother in Taipei opens Thought in Chinese, and AI suggests gifts that fit her grandchild's age and city: dinner delivered when the family is sick, a sitter night for tired parents, a museum year, swim lessons, a week of camp. She pays in New Taiwan dollars through PayPal and sees every fee, before and after. Grandparents in different countries can give together, and the child sends one video thank-you, translated for each of them.
 
 ## Links
 
@@ -22,7 +26,7 @@ Grandma got you Saturday. Grandparents abroad give real experiences through PayP
 
 ## Inspiration
 
-It's 9 p.m. in Taipei. Grandma Chen wants to give her granddaughter Mei something for her sixth birthday in San Francisco. All she can do is wire money: a bank form, a fee nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never sees what it bought.
+It's 9 p.m. in Taipei. Grandma Chen wants to give her granddaughter Mei, who lives in San Francisco, something for her sixth birthday. All she can do is wire money: a bank form, a fee nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never sees what it bought.
 
 Almost half of California's kids (44%) have a parent born abroad. US grandparents spend about $2,654 a year on their grandchildren, but sending money across borders through a bank averages almost 15% in fees. And research on loneliness keeps saying the same thing: what helps isn't more contact, it's feeling close.
 

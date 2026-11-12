@@ -22,7 +22,7 @@ export default function Start() {
         </div>
         <h1 aria-label="Thought"><Logo size="lg" /></h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">
-          Grandparents far away give the Saturday they&apos;d give in person. Paid with PayPal, in their own currency.
+          Thoughtful gifts from grandparents abroad. They choose something real for their grandkids in the US, pay in their own currency with PayPal, and get a video thank-you back.
         </p>
       </div>
 
