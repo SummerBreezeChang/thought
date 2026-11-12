@@ -12,6 +12,74 @@ Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual 
 - **Demo video:** [YouTube link]
 - **License:** MIT
 
+<p align="center"><img src="docs/images/slide-cover.png" alt="Thought: thoughtful gifts from grandparents abroad" width="760"></p>
+
+---
+
+## See it
+
+<table>
+<tr>
+<td width="40%" valign="top"><img src="docs/images/thought-click-through.gif" alt="Click-through of Thought: Grandma picks a gift in Chinese, pays with PayPal, Grandpa joins, Mei sends one thank-you that arrives translated" width="320"></td>
+<td valign="top">
+
+**The whole journey in 7 steps**
+
+1. **Pick who you are:** Grandma Chen (Taipei), Grandpa Kenji (Tokyo) or Mei (San Francisco).
+2. **Grandma's home, in Chinese:** Mei's thank-yous, gifts in progress, ideas, and an AI helper with tap-to-ask suggestions.
+3. **Choose an amount:** amounts follow her customs, and every PayPal fee is shown before she pays.
+4. **Pay with PayPal:** the order is in NT$; after capture, the receipt shows PayPal's actual fee, exchange rate and the US$ that arrived.
+5. **Given together:** Grandpa adds ¥ to the same gift. Each grandparent sees only their own amount.
+6. **One gift, one thank-you:** Mei sees the gift from both and records one short video.
+7. **It lands, translated:** each grandparent gets it, marked New, in their own language.
+
+</td>
+</tr>
+</table>
+
+### User flow
+
+![User flow: Grandma chooses and pays through PayPal, Grandpa joins, Mei sends one thank-you back to both](docs/images/user-flow.png)
+
+### Architecture
+
+![Architecture: grandparents and child use the Thought app on Vercel, which talks to PayPal Orders v2, Claude Sonnet through the Vercel AI Gateway, and Vercel Blob](docs/images/architecture.png)
+
+```mermaid
+sequenceDiagram
+    actor G as Grandma (Taipei)
+    participant T as Thought (Next.js on Vercel)
+    participant AI as Claude Sonnet via AI Gateway
+    participant P as PayPal Orders v2 (sandbox)
+    participant B as Vercel Blob
+    actor M as Mei (San Francisco)
+    G->>T: Ask for an idea (in Chinese)
+    T->>AI: Question + guarded tools (family, catalog, amounts, fee quote)
+    AI-->>T: Suggestions and a draft (cannot pay)
+    G->>T: Choose amount (every fee shown)
+    T->>P: Create order in TWD
+    G->>P: Approve on PayPal checkout
+    P-->>T: Return → capture → seller_receivable_breakdown
+    T->>B: Save payment (actual fee, rate, US$ received)
+    M->>B: Upload one video thank-you
+    T->>AI: Translate caption for each grandparent
+    T-->>G: "New" thank-you, in Chinese
+```
+
+### Screens
+
+| Grandma's home | Choose an amount | PayPal receipt | Given together | Mei | Thank-you arrives |
+|---|---|---|---|---|---|
+| <img src="docs/images/screen-2-grandma-home.png" width="150"> | <img src="docs/images/screen-3-choose-amount.png" width="150"> | <img src="docs/images/screen-4-paypal-receipt.png" width="150"> | <img src="docs/images/screen-5-given-together.png" width="150"> | <img src="docs/images/screen-6-mei.png" width="150"> | <img src="docs/images/screen-7-thank-you-arrives.png" width="150"> |
+
+### Presentation
+
+- **Slides:** [Thought-deck.pdf](docs/Thought-deck.pdf) (16 slides, with every source linked)
+
+| How it works | Two PayPal payments | Where AI fits |
+|---|---|---|
+| <img src="docs/images/slide-how-it-works.png" width="260"> | <img src="docs/images/slide-paypal-payments.png" width="260"> | <img src="docs/images/slide-ai.png" width="260"> |
+
 ---
 
 ## Try it in 3 minutes (judges)
