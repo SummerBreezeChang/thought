@@ -9,7 +9,7 @@ Thought turns that wire into a thoughtful gift. A grandmother in Taipei opens Th
 Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual money moves.
 
 - **Live demo:** https://thought-one.vercel.app
-- **Demo video:** [YouTube link]
+- **Demo video:** [youtu.be/JzllwevNN50](https://youtu.be/JzllwevNN50)
 - **License:** MIT
 
 <p align="center"><img src="docs/images/slide-cover.png" alt="Thought: thoughtful gifts from grandparents abroad" width="760"></p>
