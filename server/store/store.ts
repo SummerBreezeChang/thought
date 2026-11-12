@@ -80,6 +80,31 @@ async function write(data: Data): Promise<void> {
   await writeFile(FILE, JSON.stringify(data, null, 2));
 }
 
+const BLOB_SEED = "data/seed.json";
+const SEED_FILE = path.join(DATA_DIR, "seed.json");
+
+async function readSeed(): Promise<Data | undefined> {
+  if (usesBlob()) {
+    const r = await get(BLOB_SEED, { access: "private", useCache: false }).catch(() => null);
+    if (!r || r.statusCode !== 200) return undefined;
+    return JSON.parse(await new Response(r.stream).text()) as Data;
+  }
+  try {
+    return JSON.parse(await readFile(SEED_FILE, "utf8")) as Data;
+  } catch {
+    return undefined;
+  }
+}
+
+async function writeSeed(data: Data): Promise<void> {
+  if (usesBlob()) {
+    await put(BLOB_SEED, JSON.stringify(data), { access: "private", addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" });
+    return;
+  }
+  await mkdir(DATA_DIR, { recursive: true });
+  await writeFile(SEED_FILE, JSON.stringify(data, null, 2));
+}
+
 // Serialize writes so two quick requests can't overwrite each other.
 let queue: Promise<unknown> = Promise.resolve();
 function update<T>(fn: (d: Data) => T): Promise<T> {
@@ -122,10 +147,21 @@ export const store = {
       if (t && !t.watchedBy?.includes(memberId)) t.watchedBy = [...(t.watchedBy ?? []), memberId];
     });
   },
-  reset() {
+  /**
+   * Back to the saved demo state (the real sandbox payments and the hero
+   * thank-you), so one judge's clicks don't erase the demo for the next.
+   * With no saved state, starts empty. Save one with `npm run demo:snapshot`.
+   */
+  async reset() {
+    const seed = await readSeed();
     return update((d) => {
-      d.contributions = [];
-      d.thankYous = [];
+      d.contributions = seed?.contributions ?? [];
+      d.thankYous = (seed?.thankYous ?? []).map((t) => ({ ...t, watchedBy: [] }));
     });
+  },
+  async snapshot() {
+    const d = await read();
+    await writeSeed(d);
+    return { contributions: d.contributions.length, thankYous: d.thankYous.length };
   },
 };

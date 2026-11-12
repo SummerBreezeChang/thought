@@ -10,7 +10,8 @@
     "build:server": "tsc -p tsconfig.server.json",
     "test:server": "npm run build:server && node --test .build/server/",
     "spike": "npm run build:server --silent && node --env-file=.env.local .build/scripts/spike-paypal.js",
-    "eval:concierge": "npm run build:server --silent && node --env-file=.env.local .build/scripts/eval-concierge.js"
+    "eval:concierge": "npm run build:server --silent && node --env-file=.env.local .build/scripts/eval-concierge.js",
+    "demo:snapshot": "npm run build:server --silent && node --env-file-if-exists=.env.local .build/scripts/snapshot-demo.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
