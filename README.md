@@ -99,8 +99,8 @@ On PayPal's sandbox checkout, log in with a sandbox buyer account:
 
 | Sandbox buyer | Email | Password |
 |---|---|---|
-| Grandma Chen (Taiwan, pays in NT$) | `[CHEN_SANDBOX_EMAIL]` | `[CHEN_SANDBOX_PASSWORD]` |
-| Grandpa Kenji (Japan, pays in ¥) | `[KENJI_SANDBOX_EMAIL]` | `[KENJI_SANDBOX_PASSWORD]` |
+| Grandma Chen (Taiwan, pays in NT$) | `sb-htdbi53742201@personal.example.com` | `AZJ1_apY` |
+| Grandpa Kenji (Japan, pays in ¥) | `sb-nbu9d53840347@personal.example.com` | `OAQ?iU&8` |
 
 These are PayPal **sandbox** test accounts with fake balances. They only work on sandbox.paypal.com.
 
