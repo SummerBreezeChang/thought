@@ -19,6 +19,17 @@ Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual 
 
 ## See it
 
+**In motion** (recorded on the live app; added after the submission deadline)
+
+| AI gift ideas | Pay with PayPal | Given together | One thank-you |
+|---|---|---|---|
+| <img src="docs/images/gifs/1-ai-gift-ideas.gif" width="200" alt="Grandma taps a suggestion and the AI answers in Chinese with gifts that fit Mei"> | <img src="docs/images/gifs/2-pay-with-paypal.gif" width="200" alt="Grandma picks an amount, opens every fee, PayPal checkout opens in Chinese, then the receipt with PayPal's actual numbers"> | <img src="docs/images/gifs/3-given-together.gif" width="200" alt="Grandpa Kenji's view in Japanese: one gift, given together, only his own amount shown"> | <img src="docs/images/gifs/4-thank-you.gif" width="200" alt="Mei records one thank-you, it is sent to both grandparents, and arrives on Grandma's phone translated"> |
+| Grandma taps a suggestion; the AI answers in Chinese with gifts that fit Mei. | She picks an amount, sees every fee, and pays on PayPal's checkout, in Chinese. The receipt shows PayPal's actual fee and rate. | Grandpa gives yen to the same gift. Each grandparent sees only their own amount. | Mei records one video. It reaches both grandparents, translated, marked New. |
+
+Full walkthrough (2:21): [watch it here](https://cdn.jsdelivr.net/gh/SummerBreezeChang/thought@main/docs/video/thought-walkthrough.mp4)
+
+**Step by step**
+
 <table>
 <tr>
 <td width="40%" valign="top"><img src="docs/images/thought-click-through.gif" alt="Click-through of Thought: Grandma picks a gift in Chinese, pays with PayPal, Grandpa joins, Mei sends one thank-you that arrives translated" width="320"></td>
