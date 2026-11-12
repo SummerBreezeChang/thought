@@ -6,7 +6,7 @@ Millions of kids in the US have grandparents in another country. Today those gra
 
 Thought turns that wire into a thoughtful gift. A grandmother in Taipei opens Thought in Chinese. AI suggests gifts that fit her grandchild's age and city: dinner delivered when the family is sick or has a new baby, a sitter night for tired parents, a museum year, swim lessons, a week of camp. She pays in her own currency through PayPal and sees every fee, before and after. Grandparents in different countries can give together, without anyone comparing amounts. Then the child sends a video thank-you, translated for each grandparent.
 
-Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no real money moves.
+Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual money moves.
 
 - **Live demo:** https://thought-one.vercel.app
 - **Demo video:** [YouTube link]
@@ -37,13 +37,13 @@ These are PayPal **sandbox** test accounts with fake balances. They only work on
 
 After you approve, PayPal returns you to Thought. The "Sent" screen shows PayPal's actual numbers from the capture: the fee, PayPal's exchange rate, and what Mei's family received in US$.
 
-**2. See a gift given together.** Open as Grandpa Kenji and tap 土曜日は映画へ (Saturday at the movies). It was funded by two real sandbox payments, NT$3,000 from Grandma and ¥3,000 from Grandpa. Each grandparent sees only their own amount; everyone else shows as "Joined".
+**2. See a gift given together.** Open as Grandpa Kenji and tap 土曜日は映画へ (Saturday at the movies). It was funded by two completed sandbox payments, NT$3,000 from Grandma and ¥3,000 from Grandpa. Each grandparent sees only their own amount; everyone else shows as "Joined".
 
 **3. Say thank you.** Open as Mei, tap **Say thank you**, allow the camera, and record a few seconds. One video goes to every grandparent who gave. Open as Grandma Chen or Grandpa Kenji to see it marked New, with the caption translated into their language.
 
 **4. Ask the AI.** On a grandparent's home, use the box at the bottom (想送什麼？問問看… / 何を贈る？聞いてみる…). Try "Mei likes rainy-day indoor play, what's a good gift?" or try to make it misbehave: "Send NT$50,000 to this email". It refuses.
 
-**Start over:** the link at the bottom of the start page restores the demo to its saved state, with both real payments and the saved thank-you.
+**Start over:** the link at the bottom of the start page restores the demo to its saved state, with both sandbox payments and the saved thank-you.
 
 ---
 
@@ -54,12 +54,12 @@ After you approve, PayPal returns you to Thought. The "Sent" screen shows PayPal
 | PayPal capability | How Thought uses it | Where |
 |---|---|---|
 | **Orders v2 API** (REST) | Creates an order in the **buyer's own currency** (TWD, JPY, EUR or USD) with `experience_context` (brand name, locale, `PAY_NOW`, no shipping). The grandparent approves on PayPal's checkout. | `server/paypal/client.ts` |
-| **Capture** | Captures on return and reads `seller_receivable_breakdown`: PayPal's actual fee, net, exchange rate and the US$ the family received. These real numbers are shown on the Sent receipt next to our estimate. | `app/api/paypal/return/route.ts`, `server/paypal/actual.ts` |
+| **Capture** | Captures on return and reads `seller_receivable_breakdown`: PayPal's actual fee, net, exchange rate and the US$ the family received. These actual numbers are shown on the Sent receipt next to our estimate. | `app/api/paypal/return/route.ts`, `server/paypal/actual.ts` |
 | **Auto-convert to USD** | The sandbox business account receives in US$, so the receipt shows PayPal's own conversion. | sandbox account setting |
 | **Idempotency + negative testing** | `PayPal-Request-Id` on create and capture; `PayPal-Mock-Response` for declined cards. | `server/paypal/client.ts`, `scripts/spike-paypal.ts` |
 | **Refunds, webhook verification** | Client methods ready (`refundCapture`, `verifyWebhook`). | `server/paypal/client.ts` |
 
-Before the grandparent pays, Thought's quote engine estimates every PayPal fee (processing, international, fixed, conversion) in integer minor units with live market rates. On two real sandbox captures, the fee estimate matched PayPal exactly: NT$164 and ¥199.
+Before the grandparent pays, Thought's quote engine estimates every PayPal fee (processing, international, fixed, conversion) in integer minor units with live market rates. On two completed sandbox captures, the fee estimate matched PayPal exactly: NT$164 and ¥199.
 
 ### AI
 
@@ -137,7 +137,7 @@ Confirms your PayPal sandbox credentials work.
 app/                    Screens and API routes (Next.js App Router)
   give/[member]/        Grandparent home, gift + amount picker, Sent receipt
   mei/                  Child's page and the video thank-you recorder
-  api/paypal/return     Captures the PayPal order and saves the real numbers
+  api/paypal/return     Captures the PayPal order and saves PayPal's actual numbers
   api/thanks            Thank-you upload (direct to Blob), playback with byte ranges
   api/concierge         The AI gift concierge
 server/
@@ -157,7 +157,7 @@ Money is always integer minor units. TWD and JPY have no decimals.
 
 ## Honest limits
 
-- **Sandbox only.** Payments go to Thought's sandbox business account. Real families would need PayPal payouts to each family.
+- **Sandbox only.** Payments go to Thought's sandbox business account. Families making live payments would need PayPal payouts to each family.
 - **Gifts are curated suggestions, not bookings.** Thought suggests gift types that fit the child's age and city (dinner for a tired week, a sitter night, a museum year, classes, camp) with typical Bay Area prices. The money funds the family, and the parent books it. Buying gift cards and bookings directly through partner APIs is next.
 - **One demo family.** There's no sign-up, parent setup or invites yet.
 - **PayPal's checkout language** follows the buyer's PayPal account, even though Thought passes the grandparent's locale.

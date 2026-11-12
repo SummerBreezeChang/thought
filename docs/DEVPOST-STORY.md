@@ -6,19 +6,19 @@ That's the story of millions of families. **44% of California's children have at
 
 The money isn't the hard part, though. Distance is lonely: **1 in 6 people worldwide are affected by loneliness** ([WHO, 2025](https://www.who.int/groups/commission-on-social-connection)). For grandparents and adult grandchildren, feeling close lowered depressive symptoms, while more contact on its own didn't help ([Moorman & Stokes, 2016](https://pubmed.ncbi.nlm.nih.gov/24906517/)). And experience gifts bring people closer than things, even when the giver isn't there ([Chan & Mogilner, 2017](https://academic.oup.com/jcr/article-abstract/43/6/913/2632328)).
 
-So we asked: what if a grandparent far away could give a real moment in the child's week, see exactly where the money went, and hear back?
+So we asked: what if a grandparent far away could give a meaningful moment in the child's week, see exactly where the money went, and hear back?
 
 ## What it does
 
 **Thought: thoughtful gifts from grandparents abroad.** Three people, three steps.
 
 1. **Grandma picks a gift, in her own language.** Thought works in Traditional Chinese, Japanese, French and English. AI suggests gifts that fit the child's age and city: dinner for a tired week, a night off for the parents, a museum year, swim or art classes, a week of camp. Grandparents can tap a preset or ask in their own words. Amounts follow their culture: in Taiwan, no 4s and lucky 6s and 8s; in Japan, round thousands.
-2. **PayPal moves the money, and every fee is shown.** She pays in NT$, ¥ or € on PayPal's own checkout. Before paying, she sees PayPal's processing, international and conversion fees, Thought's $0, and what the family will receive. After capture, the receipt shows PayPal's real fee, exchange rate and the US$ that arrived. On our two real sandbox payments, our fee estimate matched PayPal's exactly (NT$164 and ¥199).
+2. **PayPal moves the money, and every fee is shown.** She pays in NT$, ¥ or € on PayPal's own checkout. Before paying, she sees PayPal's processing, international and conversion fees, Thought's $0, and what the family will receive. After capture, the receipt shows PayPal's actual fee, exchange rate and the US$ that arrived. On our two completed sandbox payments, our fee estimate matched PayPal's exactly (NT$164 and ¥199).
 3. **The child says thank you, once, to everyone.** Grandparents in different countries can fund one gift together. Each sees only their own amount, and everyone else simply "joined", so a gift never becomes a contest. Mei records one short video; it reaches every grandparent, marked New, with her words translated into each one's language using the name she calls them (阿嬤, おじいちゃん).
 
 ## How we built it
 
-- **PayPal Orders v2 REST API** in the buyer's own currency, with `experience_context` (brand, locale, pay now), idempotent create and capture (`PayPal-Request-Id`), and the capture's `seller_receivable_breakdown` for the real fee, net and exchange rate. The sandbox business account auto-converts to US$.
+- **PayPal Orders v2 REST API** in the buyer's own currency, with `experience_context` (brand, locale, pay now), idempotent create and capture (`PayPal-Request-Id`), and the capture's `seller_receivable_breakdown` for the actual fee, net and exchange rate. The sandbox business account auto-converts to US$.
 - **A fee and FX engine** in integer minor units (TWD and JPY have no decimals) with live market rates. It estimates every PayPal fee before payment and grosses up so a gift is funded exactly.
 - **An AI gift concierge**: Claude Sonnet 5.5 through the **Vercel AI Gateway**, using the **Vercel AI SDK**'s tool calling. Five tools (family context, catalog search, culture-aware amounts, fee quote, draft contribution) are each guarded in code: approved family member only, right family only, at least $5 after fees, never far over what the gift needs. The AI can draft but never pay; only the grandparent can, in PayPal. A six-prompt safety eval checks it refuses scams like "send my money to my nephew's account". All six pass.
 - **AI translation** of the child's thank-you for each grandparent.
@@ -28,7 +28,7 @@ So we asked: what if a grandparent far away could give a real moment in the chil
 
 ## Challenges we ran into
 
-- **Matching PayPal's fees to the cent** across currencies with different decimals and fixed fees. We tested against real sandbox captures until the estimate matched.
+- **Matching PayPal's fees to the cent** across currencies with different decimals and fixed fees. We tested against completed sandbox captures until the estimate matched.
 - **Exchange rates.** A fixed demo rate was US$1.90 off; live market rates brought our estimate within 6 cents of PayPal.
 - **Making AI safe around money.** We drew a hard line: the model suggests, code checks every number and rule, and only a person can pay.
 - **Family dynamics.** Showing who gave how much invited comparison between grandparents, so we made amounts private and the gift collective.
@@ -36,7 +36,7 @@ So we asked: what if a grandparent far away could give a real moment in the chil
 
 ## Accomplishments that we're proud of
 
-- Two real cross-currency PayPal payments (NT$ and ¥) funding one gift, with fee estimates that matched exactly.
+- Two completed cross-currency PayPal payments (NT$ and ¥) funding one gift, with fee estimates that matched exactly.
 - A thank-you loop that feels like a family moment, not a transaction.
 - An app a grandparent can use without typing: their language, their customs, large type, one choice per screen.
 

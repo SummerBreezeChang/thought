@@ -22,7 +22,7 @@ export default function Start() {
         </div>
         <h1 aria-label="Thought"><Logo size="lg" /></h1>
         <p className="text-[19px] leading-snug text-th-label-secondary">
-          Thoughtful gifts from grandparents abroad. They choose something real for their grandkids in the US, pay in their own currency with PayPal, and get a video thank-you back.
+          Thoughtful gifts from grandparents abroad. They choose something meaningful for their grandkids in the US, pay in their own currency with PayPal, and get a video thank-you back.
         </p>
       </div>
 
@@ -43,7 +43,7 @@ export default function Start() {
       </ul>
 
       <p className="mt-6 text-[15px] leading-relaxed text-th-label-secondary">
-        A working prototype on the PayPal sandbox. No real money moves.
+        A working prototype on the PayPal sandbox. No actual money moves.
       </p>
       <form action={resetDemo} className="mt-auto pt-10">
         <button type="submit" className="min-h-11 text-[15px] text-th-label-secondary underline underline-offset-4 hover:text-th-label">
