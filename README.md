@@ -74,7 +74,8 @@ sequenceDiagram
 
 ### Presentation
 
-- **Slides:** [Thought-deck.pdf](docs/Thought-deck.pdf) (16 slides, with every source linked)
+- **Slides:** [Thought-deck.pdf](docs/Thought-deck.pdf) (15 slides, with every source linked)
+- **Video script:** [docs/VIDEO-SCRIPT.md](docs/VIDEO-SCRIPT.md)
 
 | How it works | Two PayPal payments | Where AI fits |
 |---|---|---|

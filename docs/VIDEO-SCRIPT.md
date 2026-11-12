@@ -1,6 +1,6 @@
 # Thought: video script (about 2:50)
 
-**Slides used in the video:** 1 → 2 → 3 → 5 → 6 → 7 → 8, then the app, then 9 → 14. Slides 10–13 and 15–18 are for judges reading the deck (16–18 are backup screens if the live demo fails).
+**Slides used in the video:** 1 → 2 → 3 → 5 → 6 → 7 → 8, then the app (or the click-through on slide 8), then 9 → 14. Slides 10–13 and 15–18 are for judges reading the deck (16–18 are backup screens if the live demo fails).
 
 Face on camera to open, then screen share: the deck first, then the live app.
 
@@ -11,55 +11,59 @@ Read it out loud once before recording. Talk like you're telling a friend, not r
 
 ---
 
-## 1. Face on camera (0:00–0:15)
+## 1. Face on camera: why I built this (0:00–0:25)
 
-> Hi, I'm Summer.
->
-> A lot of grandparents live across an ocean from their grandkids. When they want to send a gift, all they can do is wire money. And then they never see what it turned into.
->
-> **So I built Thought: thoughtful gifts from grandparents abroad.**
+*Optional: hold up or cut to a photo of your kid while you say the second line.*
 
-*Switch to screen share.*
+> Hi, I'm Summer Chang, and this is **Thought**, my project for the PayPal AI Hackathon.
+>
+> This is my kid. They're eight. We live in the US, and their grandma, my mom, lives in Taiwan.
+>
+> We're not the only ones. **More than one in four kids in the US has a parent born in another country.** A lot of them have a grandparent an ocean away.
+>
+> When my mom wants to give a gift, she sends money. And she never gets to see what it turned into. **I built Thought so grandparents far away can give something meaningful, and feel close.**
+
+*Switch to screen share, slide 2.*
 
 ---
 
-## 2. The story: slides 2 → 7 (0:15–0:50)
+## 2. The story: slides 2 → 7 (0:25–1:00)
 
-Skip slide 4 (the California numbers) in the video; it's there for judges who read the deck.
+Skip slide 4 (the California numbers) in the video; it's for judges reading the deck.
 
 **Slide 2, "It's 9 p.m. in Taipei"**
 
-> Meet Grandma Chen. She lives in Taipei. Her granddaughter Mei is six, and lives in San Francisco.
+> Meet Grandma Chen. She lives in Taipei. Her granddaughter Mei lives in San Francisco.
 >
-> Last year, for Mei's birthday, Grandma sent a wire. A bank form, fees nobody explained, a week of waiting.
+> Last year, for Mei's birthday, Grandma sent a wire transfer. Fees nobody explained, and no idea where the money went.
 >
-> **Grandma never got to see what it bought.**
+> **What she wanted was simple: for Mei to know Grandma was thinking of her.**
 
 **Slide 3, "Distance is lonely"**
 
-> Being far away is lonely. What helps isn't calling more. It's feeling close.
+> Distance keeps families apart. Calls help, but what grandparents miss is being part of the moments. Thought brings them closer.
 
 **Slide 5, "Grandparents already give"** *(a few seconds)*
 
-> Grandparents already give. But a bank can take almost fifteen percent on the way.
+> Grandparents already give. But when you send a small amount, like two hundred dollars, through a bank, fees and the exchange rate take almost fifteen percent on average.
 
-**Slide 6, "Give a Saturday, not a transfer"**
+**Slide 6, "Give an experience, not a transfer"**
 
-> So instead of a transfer, what if Grandma could give a moment? A Saturday at the movies. Swim lessons. A night off for tired parents.
+> So instead of a transfer, Grandma gives something Mei can do: swim or art classes, a museum visit, a family dinner, a week of camp, even the scooter she's been wishing for. **And Mei remembers who gave it.**
 
-**Slide 7, "Three steps, three people"**
+**Slide 7, "Three steps, three people, one gift"**
 
-> Grandma picks a gift. PayPal moves the money. Mei says thank you.
+> Here's how it works. Grandma picks the gift. PayPal moves the money, in her own currency. And Mei sends a video thank-you back.
 
-**Slide 8, "Let me show you"**
+**Slide 8, "Let me show you"** *(the click-through plays on this slide)*
 
 > Let me show you.
 
-*Switch to the app.*
+*Either switch to the live app (section 3), or stay on slide 8 and talk through the click-through as it plays (section 3b).*
 
 ---
 
-## 3. Demo: the app (0:50–2:25)
+## 3. Demo: the live app (1:00–2:25)
 
 **Start page → "Open as Grandma Chen"**
 
@@ -94,6 +98,24 @@ Skip slide 4 (the California numbers) in the video; it's there for judges who re
 > **That's the moment this whole thing is for.**
 
 *Switch back to the deck, slide 9.*
+
+---
+
+## 3b. Plan B: talk through the click-through on slide 8 (about 60 seconds)
+
+If time is short or the live demo misbehaves, stay on slide 8. The click-through plays each step for about two seconds; talk over it:
+
+> Grandma opens Thought in Chinese. She can ask for ideas, and AI suggests gifts that fit Mei's age and city. It can suggest, but only Grandma can pay.
+>
+> She picks an amount, with no fours, because in Taiwan four sounds like a bad word, and she sees every fee before she pays.
+>
+> She pays in Taiwan dollars with PayPal, and her receipt shows PayPal's actual fee and exchange rate.
+>
+> Grandpa in Tokyo gives yen to the same gift. Each one only sees what they gave. No scoreboard.
+>
+> Mei sees one gift from both, records one thank-you, and it arrives on each grandparent's phone, translated, calling them by the name she uses.
+
+**Tip:** a short clip of the live app (even just tapping through Grandma's home and the gift screen, 20–30 seconds) makes the strongest proof that it works. Devpost asks for the project "functioning on the device it was built for."
 
 ---
 
