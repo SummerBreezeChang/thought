@@ -10,6 +10,7 @@ Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual 
 
 - **Live demo:** https://thought-one.vercel.app
 - **Demo video:** [youtu.be/JzlIwevNN50](https://youtu.be/JzlIwevNN50)
+- **Product walkthrough** (added after the submission deadline): [docs/video/thought-walkthrough.mp4](docs/video/thought-walkthrough.mp4), a 2:21 screen recording of the live app, step by step
 - **License:** MIT
 
 <p align="center"><img src="docs/images/slide-cover.png" alt="Thought: thoughtful gifts from grandparents abroad" width="760"></p>
