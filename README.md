@@ -102,6 +102,8 @@ On PayPal's sandbox checkout, log in with a sandbox buyer account:
 | Grandma Chen (Taiwan, pays in NT$) | `sb-htdbi53742201@personal.example.com` | `AZJ1_apY` |
 | Grandpa Kenji (Japan, pays in ¥) | `sb-nbu9d53840347@personal.example.com` | `OAQ?iU&8` |
 
+> **Note for judges:** these are PayPal **sandbox** test accounts with fake money, and they only work on sandbox.paypal.com. Use the **Taiwan** account when paying as Grandma Chen (NT$), and the **Japan** account when paying as Grandpa Kenji (¥). PayPal's checkout may open in English. After you approve, PayPal returns you to Thought's receipt with PayPal's actual fee, exchange rate and the US$ received.
+
 These are PayPal **sandbox** test accounts with fake balances. They only work on sandbox.paypal.com.
 
 After you approve, PayPal returns you to Thought. The "Sent" screen shows PayPal's actual numbers from the capture: the fee, PayPal's exchange rate, and what Mei's family received in US$.
