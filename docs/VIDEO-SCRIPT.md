@@ -11,23 +11,23 @@ Read it out loud once before recording. Talk like you're telling a friend, not r
 
 ---
 
-## 1. Face on camera: why I built this (0:00–0:25)
+## 1. Face on camera (0:00–0:15)
 
-*Optional: hold up or cut to a photo of your kid while you say the second line.*
+*Optional: show a photo of your kid on the second line.*
 
-> Hi, I'm Summer Chang, and this is **Thought**, my project for the PayPal AI Hackathon.
+> Hi, I'm Summer Chang. This is **Thought**.
 >
-> This is my kid. They're eight. We live in the US, and their grandma, my mom, lives in Taiwan.
+> My kid is eight. We live in the US. Their grandma, my mom, lives in Taiwan.
 >
-> We're not the only ones. **More than one in four kids in the US has a parent born in another country.** A lot of them have a grandparent an ocean away.
+> More than one in four kids in the US has a parent born abroad. For many of them, a grandparent's love arrives as a bank transfer.
 >
-> When my mom wants to give a gift, she sends money. And she never gets to see what it turned into. **I built Thought so grandparents far away can give something meaningful, and feel close.**
+> **Thought turns it into a gift.**
 
 *Switch to screen share, slide 2.*
 
 ---
 
-## 2. The story: slides 2 → 7 (0:25–1:00)
+## 2. The story: slides 2 → 7 (0:15–0:55)
 
 Skip slide 4 (the California numbers) in the video; it's for judges reading the deck.
 
