@@ -104,8 +104,6 @@ On PayPal's sandbox checkout, log in with a sandbox buyer account:
 
 > **Note for judges:** these are PayPal **sandbox** test accounts with fake money, and they only work on sandbox.paypal.com. Use the **Taiwan** account when paying as Grandma Chen (NT$), and the **Japan** account when paying as Grandpa Kenji (¥). PayPal's checkout may open in English. After you approve, PayPal returns you to Thought's receipt with PayPal's actual fee, exchange rate and the US$ received.
 
-These are PayPal **sandbox** test accounts with fake balances. They only work on sandbox.paypal.com.
-
 After you approve, PayPal returns you to Thought. The "Sent" screen shows PayPal's actual numbers from the capture: the fee, PayPal's exchange rate, and what Mei's family received in US$.
 
 **2. See a gift given together.** Open as Grandpa Kenji and tap 土曜日は映画へ (Saturday at the movies). It was funded by two completed sandbox payments, NT$3,000 from Grandma and ¥3,000 from Grandpa. Each grandparent sees only their own amount; everyone else shows as "Joined".
