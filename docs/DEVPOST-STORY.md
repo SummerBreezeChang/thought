@@ -1,6 +1,6 @@
 ## Inspiration
 
-It's 9 p.m. in Taipei. Grandma Chen wants to give her granddaughter Mei, who lives in San Francisco, something for her sixth birthday. All she can do is wire money: a bank form, fees nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never finds out what it bought.
+It's 9 p.m. in Taipei. Grandma Chang wants to give her granddaughter Mei, who lives in San Francisco, something for her sixth birthday. All she can do is wire money: a bank form, fees nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never finds out what it bought.
 
 That's the story of millions of families. **44% of California's children have at least one immigrant parent** ([PPIC, 2026](https://www.ppic.org/publication/immigrants-in-california/)), and many have grandparents an ocean away. **The average US grandparent spends $2,654 a year on their grandchildren** ([AARP, 2026](https://www.aarp.org/pri/topics/social-leisure/relationships/the-essential-role-of-grandparents/)), but sending money abroad through a bank costs **14.99% on average**, more than double the 6.36% global average ([World Bank, Q3 2025](https://remittanceprices.worldbank.org/sites/default/files/2026-04/RPW_main_report_and_annex_Q325.pdf)).
 
@@ -23,7 +23,7 @@ So we asked: what if a grandparent far away could give a meaningful moment in th
 - **An AI gift concierge**: Claude Sonnet 5.5 through the **Vercel AI Gateway**, using the **Vercel AI SDK**'s tool calling. Five tools (family context, catalog search, culture-aware amounts, fee quote, draft contribution) are each guarded in code: approved family member only, right family only, at least $5 after fees, never far over what the gift needs. The AI can draft but never pay; only the grandparent can, in PayPal. A six-prompt safety eval checks it refuses scams like "send my money to my nephew's account". All six pass.
 - **AI translation** of the child's thank-you for each grandparent.
 - **Next.js 16** on **Vercel**, with **Vercel Blob** storing payments and videos. Videos upload straight from the browser and stream with byte ranges, so they play on iPhone.
-- Hand-drawn SVG characters (Grandma Chen, Grandpa Kenji, Mei) with gentle motion: a heart travels along a red thread when a gift is sent and when the thank-you comes back. The motion turns off for people who prefer reduced motion.
+- Hand-drawn SVG characters (Grandma Chang, Grandpa Kenji, Mei) with gentle motion: a heart travels along a red thread when a gift is sent and when the thank-you comes back. The motion turns off for people who prefer reduced motion.
 - Built with **Claude Code** as a design and engineering partner, from research and source checks to the last commit.
 
 ## Challenges we ran into

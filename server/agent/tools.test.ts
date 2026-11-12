@@ -6,7 +6,7 @@ import { fixedRateProvider } from "../quotes/rates.ts";
 const rates = fixedRateProvider(undefined, "test", "2026-11-05T00:00:00Z");
 const chen = makeTools({ memberId: "m-chen", rates });
 
-test("Catalog comes back in Grandma Chen's language, curated for a 6-year-old in SF", () => {
+test("Catalog comes back in Grandma Chang's language, curated for a 6-year-old in SF", () => {
   const items = chen.searchCatalog({});
   assert.ok(items.some((i) => i.title === "週六看電影"));
   assert.ok(!items.some((i) => i.id === "lawrence-hall-of-science"), "East Bay only");

@@ -139,9 +139,9 @@ Total cost 8.3% · PayPal sets the final rate
 
 **Seed data:**
 - Family Lin; child Mei (6; loves science, dinosaurs, swimming).
-- 阿嬤 Chen (Taipei, zh-TW, TWD), おじいちゃん Kenji (Tokyo, ja-JP, JPY), Mamie Claire (Paris, fr-FR, EUR).
+- 阿嬤 Chang (Taipei, zh-TW, TWD), おじいちゃん Kenji (Tokyo, ja-JP, JPY), Mamie Claire (Paris, fr-FR, EUR).
 - The catalog in §6.
-- One goal: Saturday at the movies ($100), with 阿嬤 Chen's NT$3,000 already in (≈ $85.97, 86%).
+- One goal: Saturday at the movies ($100), with 阿嬤 Chang's NT$3,000 already in (≈ $85.97, 86%).
 
 ## 10. Design (summary)
 
@@ -181,14 +181,14 @@ Total cost 8.3% · PayPal sets the final rate
 
 ## 12. Build order for Lovable
 
-**MVP first:** "Grandma got you Saturday": Grandma Chen (TWD) and Grandpa Kenji (JPY) pool a $100 Saturday at the movies for Mei (see MVP-STORY.md). Steps 1, 3, 4 and 5 below cover the MVP; step 2's invite and approvals come after (seed the members instead).
+**MVP first:** "Grandma got you Saturday": Grandma Chang (TWD) and Grandpa Kenji (JPY) pool a $100 Saturday at the movies for Mei (see MVP-STORY.md). Steps 1, 3, 4 and 5 below cover the MVP; step 2's invite and approvals come after (seed the members instead).
 
 | Step | Prompt Lovable with | Done when |
 |---|---|---|
 | 1 | Foundation: tokens, fonts, four languages, layout, data tables, seed data | Grandparent home renders in all 4 languages with Mei's seed data |
 | 2 | Parent setup + invite link + approvals | Parent can add a grandparent and see them as "invited" |
 | 3 | Grandparent flow G1–G5 with placeholder gift ideas and a placeholder cost receipt | You can click through G1→G5 in zh-TW |
-| 4 | Gift goals: progress, givers, funded state | Chen's NT$3,000 shows the goal at 86%; Kenji's ¥3,000 makes it funded |
+| 4 | Gift goals: progress, givers, funded state | Chang's NT$3,000 shows the goal at 86%; Kenji's ¥3,000 makes it funded |
 | 5 | Child wallet C1–C3 with voice note playback (upload a sample audio file) | Mei's shelf shows gifts from 3 grandparents |
 | 6 | Polish: empty, loading and error states; contrast check; mobile and tablet | Every screen has all three states |
 

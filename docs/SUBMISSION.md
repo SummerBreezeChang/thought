@@ -26,7 +26,7 @@ Millions of kids in the US have grandparents in another country, and today those
 
 ## Inspiration
 
-It's 9 p.m. in Taipei. Grandma Chen wants to give her granddaughter Mei, who lives in San Francisco, something for her sixth birthday. All she can do is wire money: a bank form, a fee nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never sees what it bought.
+It's 9 p.m. in Taipei. Grandma Chang wants to give her granddaughter Mei, who lives in San Francisco, something for her sixth birthday. All she can do is wire money: a bank form, a fee nobody explains, a week of waiting. Mei's mom says thank you for her, and Grandma never sees what it bought.
 
 Almost half of California's kids (44%) have a parent born abroad. US grandparents spend about $2,654 a year on their grandchildren, but sending money across borders through a bank averages almost 15% in fees. And research on loneliness keeps saying the same thing: what helps isn't more contact, it's feeling close.
 

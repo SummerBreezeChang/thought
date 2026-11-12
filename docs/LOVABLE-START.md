@@ -113,9 +113,9 @@ LANGUAGE
 DATA (use Lovable Cloud)
 Tables: families, members (role parent|grandparent|relative|child, title, country, language, currency, status invited|approved|blocked), children, catalog_items (type cash|care|experience|item|recurring, title and description in each language, price_usd, age range, city, fulfillment type, source_url), wishes, gift_goals (target_usd, occasion, due date, status), contributions (amount, currency, message, status), thank_yous.
 Row-level security: members only see their own family. Only parents can approve members.
-Seed demo data: family "Lin", child Mei (6, loves science, dinosaurs, swimming), grandparents 阿嬤 Chen (Taipei, zh-TW, TWD), おじいちゃん Kenji (Tokyo, ja-JP, JPY), Mamie Claire (Paris, fr-FR, EUR).
+Seed demo data: family "Lin", child Mei (6, loves science, dinosaurs, swimming), grandparents 阿嬤 Chang (Taipei, zh-TW, TWD), おじいちゃん Kenji (Tokyo, ja-JP, JPY), Mamie Claire (Paris, fr-FR, EUR).
 Catalog of care gifts (nothing ships; everything happens in Mei's city): Saturday at the movies (Regal gift card, $100), Family dinner night (Benihana $100 or Grubhub $25), An adventure day (iFLY $50), A Saturday at the Exploratorium (family membership $239), A Saturday at the SF Zoo (family membership $199), a Lunar New Year red envelope (cash).
-Parent hints for Mei: "loves dinosaur movies", "Saturdays work". Seed one gift goal: Saturday at the movies, $100, with a contribution from 阿嬤 Chen of NT$3,000 (family receives ≈ $85.97, so the goal shows 86%). Grandpa Kenji finishes it live in the demo with ¥3,000.
+Parent hints for Mei: "loves dinosaur movies", "Saturdays work". Seed one gift goal: Saturday at the movies, $100, with a contribution from 阿嬤 Chang of NT$3,000 (family receives ≈ $85.97, so the goal shows 86%). Grandpa Kenji finishes it live in the demo with ¥3,000.
 
 LOOK AND FEEL
 Warm paper, ink, and one red thread. It should feel like a handwritten card from Grandma, not a bank.

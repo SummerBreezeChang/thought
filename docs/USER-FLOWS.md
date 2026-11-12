@@ -2,12 +2,12 @@
 
 *v1 · Nov 5, 2026 · Companion docs: [DESIGN-BRIEF.md](DESIGN-BRIEF.md) · [TECH-SPEC.md](TECH-SPEC.md)*
 
-> **MVP update (v2):** the hero gift is now **"Saturday at the movies"** ($100 Regal card) pooled by Grandma Chen (TWD) and Grandpa Kenji (JPY). Flow A's steps are the same, and the Exploratorium becomes the second gift. The parent's role is three taps ("we have this" · "yes, this month" · "pick a Saturday"), and a photo comes back after the outing. Flows C (items), D (allowance) and G's payout are cut from the MVP. See MVP-STORY.md.
+> **MVP update (v2):** the hero gift is now **"Saturday at the movies"** ($100 Regal card) pooled by Grandma Chang (TWD) and Grandpa Kenji (JPY). Flow A's steps are the same, and the Exploratorium becomes the second gift. The parent's role is three taps ("we have this" · "yes, this month" · "pick a Saturday"), and a photo comes back after the outing. Flows C (items), D (allowance) and G's payout are cut from the MVP. See MVP-STORY.md.
 
 **Demo cast**
 - **Lin** (parent, San Francisco)
 - **Mei**, Lin's 6-year-old
-- **阿嬤 (Grandma) Chen** in Taipei, zh-TW, pays in TWD
+- **阿嬤 (Grandma) Chang** in Taipei, zh-TW, pays in TWD
 - **おじいちゃん (Grandpa) Kenji** in Tokyo, ja-JP, pays in JPY
 - **Mamie Claire** in Paris, fr-FR, pays in EUR
 
@@ -53,16 +53,16 @@ flowchart LR
 sequenceDiagram
   actor Lin as 👩 Lin (parent)
   participant App as ⚙️ App
-  actor Chen as 👵 Grandma Chen
+  actor Chang as 👵 Grandma Chang
   Lin->>App: Sign up, create family, add Mei (birthday, interests, photo)
-  Lin->>App: Add Grandma Chen: title "阿嬤", country Taiwan, language zh-TW
+  Lin->>App: Add Grandma Chang: title "阿嬤", country Taiwan, language zh-TW
   App-->>Lin: Invite link + QR code
-  Lin->>Chen: Sends link on LINE / WhatsApp
-  Chen->>App: Opens link (UI already in zh-TW)
-  App-->>Chen: "Lin invited you to Mei's family" + Mei's photo
-  Chen->>App: Confirms with one-time code (email or SMS)
+  Lin->>Chang: Sends link on LINE / WhatsApp
+  Chang->>App: Opens link (UI already in zh-TW)
+  App-->>Chang: "Lin invited you to Mei's family" + Mei's photo
+  Chang->>App: Confirms with one-time code (email or SMS)
   App->>App: Member approved (invited by parent = approved)
-  App-->>Chen: Home: Mei's face, next occasion, "送禮物" (Send a gift)
+  App-->>Chang: Home: Mei's face, next occasion, "送禮物" (Send a gift)
 ```
 
 | Screen | What's on it | States |
@@ -80,11 +80,11 @@ sequenceDiagram
 
 ## Flow A (hero): Gift goal, pooled across countries
 
-**Story:** Mei turns 7 in 3 weeks. Lin added "Exploratorium family membership" as a wish. Grandma Chen and Grandpa Kenji fund it together.
+**Story:** Mei turns 7 in 3 weeks. Lin added "Exploratorium family membership" as a wish. Grandma Chang and Grandpa Kenji fund it together.
 
 ```mermaid
 sequenceDiagram
-  actor Chen as 👵 Grandma Chen (Taipei)
+  actor Chang as 👵 Grandma Chang (Taipei)
   participant AI as 🤖 Gift concierge
   participant App as ⚙️ App server
   participant PP as 💳 PayPal
@@ -92,17 +92,17 @@ sequenceDiagram
   actor Lin as 👩 Lin
   actor Mei as 👧 Mei
 
-  Chen->>AI: "小美生日送什麼好?" (What should I give Mei for her birthday?)
+  Chang->>AI: "小美生日送什麼好?" (What should I give Mei for her birthday?)
   AI->>App: search_catalog(age 7, SF, interests, wishes)
   App-->>AI: 3 catalog items (IDs, prices from DB)
-  AI-->>Chen: 3 cards in Chinese: Exploratorium (Lin's wish ★), swim lessons, art camp
-  Chen->>App: Opens Exploratorium → "Start a family gift"
-  App-->>Chen: Goal page: target in USD + ≈ NT$, suggested shares (NT$3,000 / NT$6,000 / NT$8,800)
-  Chen->>App: Picks NT$3,000, records a 20-sec voice note
+  AI-->>Chang: 3 cards in Chinese: Exploratorium (Lin's wish ★), swim lessons, art camp
+  Chang->>App: Opens Exploratorium → "Start a family gift"
+  App-->>Chang: Goal page: target in USD + ≈ NT$, suggested shares (NT$3,000 / NT$6,000 / NT$8,800)
+  Chang->>App: Picks NT$3,000, records a 20-sec voice note
   App->>PP: Create order (TWD 3000, goal reference)
-  Chen->>PP: Approves in PayPal popup (zh-TW)
+  Chang->>PP: Approves in PayPal popup (zh-TW)
   PP-->>App: Capture → webhook PAYMENT.CAPTURE.COMPLETED (USD received)
-  App-->>Chen: "送出了!" (Sent!) Goal 35%. "Grandpa Kenji can help finish it."
+  App-->>Chang: "送出了!" (Sent!) Goal 35%. "Grandpa Kenji can help finish it."
   App->>Kenji: Reminder in Japanese: "Mei's Exploratorium gift is 35% there"
   Kenji->>App: Opens goal (ja-JP), pays the remaining amount in JPY
   PP-->>App: Capture webhook → goal funded
@@ -138,7 +138,7 @@ sequenceDiagram
 
 ## Flow B: Red envelope (cash moment)
 
-**Story:** Lunar New Year. Grandma Chen sends Mei a 紅包.
+**Story:** Lunar New Year. Grandma Chang sends Mei a 紅包.
 
 ```mermaid
 flowchart TD
@@ -202,10 +202,10 @@ sequenceDiagram
 
 ## Flow E: Care credit (help the parents)
 
-**Story:** Lin just had a second baby. Grandma Chen wants to help, not just with toys.
+**Story:** Lin just had a second baby. Grandma Chang wants to help, not just with toys.
 
 1. The concierge suggests a "for the family" category: DoorDash dinners, babysitter evenings, or diapers & wipes for a month
-2. Grandma Chen picks "3 babysitter evenings" (price set by Lin's local rate in her profile)
+2. Grandma Chang picks "3 babysitter evenings" (price set by Lin's local rate in her profile)
 3. 💳 Pay → Lin is notified: "阿嬤 sent you 3 sitter evenings 💛"
 4. Payout to Lin, earmarked "Babysitting from 阿嬤". In the demo this is an earmarked payout; partner gift cards come later.
 5. Lin taps "Say thanks" and sends a photo of date night back to Grandma.
@@ -291,7 +291,7 @@ stateDiagram-v2
 | Time | Flow | On screen |
 |---|---|---|
 | 0:00–0:25 | Story | Photo-style intro: a grandma visiting SF, English apps she can't read |
-| 0:25–1:20 | A (part 1) | Grandma Chen asks in Chinese → 3 gifts → pays NT$3,000 in the zh-TW PayPal popup |
+| 0:25–1:20 | A (part 1) | Grandma Chang asks in Chinese → 3 gifts → pays NT$3,000 in the zh-TW PayPal popup |
 | 1:20–1:45 | A (part 2) | Grandpa Kenji finishes the goal in Japanese → goal funded |
 | 1:45–2:10 | G + A9 | Lin approves → the agent buys the gift → Mei opens it and hears both voices with English captions |
 | 2:10–2:30 | B or H | Quick red envelope with a lucky-number nudge, or the scam guard refusing |

@@ -41,7 +41,7 @@ Facts used in the deck "Thought · Grandma got you Saturday". Each was checked o
 
 ## Our own proof (PayPal sandbox, Nov 10, 2026)
 
-| | Grandma Chen | Grandpa Kenji |
+| | Grandma Chang | Grandpa Kenji |
 |---|---|---|
 | Paid | NT$3,000 | ¥3,000 |
 | PayPal fee (estimate matched exactly) | NT$164 | ¥199 |

@@ -25,7 +25,7 @@ Built for the PayPal AI Hackathon 2026. Uses the PayPal sandbox only: no actual 
 
 **The whole journey in 7 steps**
 
-1. **Pick who you are:** Grandma Chen (Taipei), Grandpa Kenji (Tokyo) or Mei (San Francisco).
+1. **Pick who you are:** Grandma Chang (Taipei), Grandpa Kenji (Tokyo) or Mei (San Francisco).
 2. **Grandma's home, in Chinese:** Mei's thank-yous, gifts in progress, ideas, and an AI helper with tap-to-ask suggestions.
 3. **Choose an amount:** amounts follow her customs, and every PayPal fee is shown before she pays.
 4. **Pay with PayPal:** the order is in NT$; after capture, the receipt shows PayPal's actual fee, exchange rate and the US$ that arrived.
@@ -89,26 +89,26 @@ Open **https://thought-one.vercel.app** and pick who you are. There's no sign-up
 
 | Open as | What you'll see |
 |---|---|
-| **Grandma Chen** (Taipei) | The app in Traditional Chinese, amounts in NT$. |
+| **Grandma Chang** (Taipei) | The app in Traditional Chinese, amounts in NT$. |
 | **Grandpa Kenji** (Tokyo) | The app in Japanese, amounts in ¥. |
 | **Mei, 6** (San Francisco) | The child's side: gifts from her grandparents, and the thank-you recorder. |
 
-**1. Give a gift with PayPal.** Open as Grandma Chen and pick an idea, such as 探索館一年會員 (Exploratorium membership) or 讓爸媽放一晚假 (a sitter night for Mei's parents). Choose an amount: the options follow Taiwanese custom (no 4s, lucky 6s and 8s). Tap "PayPal 手續費 ›" to see every fee, then **用 PayPal 付款** (Pay with PayPal).
+**1. Give a gift with PayPal.** Open as Grandma Chang and pick an idea, such as 探索館一年會員 (Exploratorium membership) or 讓爸媽放一晚假 (a sitter night for Mei's parents). Choose an amount: the options follow Taiwanese custom (no 4s, lucky 6s and 8s). Tap "PayPal 手續費 ›" to see every fee, then **用 PayPal 付款** (Pay with PayPal).
 
 On PayPal's sandbox checkout, log in with a sandbox buyer account:
 
 | Sandbox buyer | Email | Password |
 |---|---|---|
-| Grandma Chen (Taiwan, pays in NT$) | `sb-htdbi53742201@personal.example.com` | `AZJ1_apY` |
+| Grandma Chang (Taiwan, pays in NT$) | `sb-htdbi53742201@personal.example.com` | `AZJ1_apY` |
 | Grandpa Kenji (Japan, pays in ¥) | `sb-nbu9d53840347@personal.example.com` | `OAQ?iU&8` |
 
-> **Note for judges:** these are PayPal **sandbox** test accounts with fake money, and they only work on sandbox.paypal.com. Use the **Taiwan** account when paying as Grandma Chen (NT$), and the **Japan** account when paying as Grandpa Kenji (¥). PayPal's checkout may open in English. After you approve, PayPal returns you to Thought's receipt with PayPal's actual fee, exchange rate and the US$ received.
+> **Note for judges:** these are PayPal **sandbox** test accounts with fake money, and they only work on sandbox.paypal.com. Use the **Taiwan** account when paying as Grandma Chang (NT$), and the **Japan** account when paying as Grandpa Kenji (¥). PayPal's checkout may open in English. After you approve, PayPal returns you to Thought's receipt with PayPal's actual fee, exchange rate and the US$ received.
 
 After you approve, PayPal returns you to Thought. The "Sent" screen shows PayPal's actual numbers from the capture: the fee, PayPal's exchange rate, and what Mei's family received in US$.
 
 **2. See a gift given together.** Open as Grandpa Kenji and tap 土曜日は映画へ (Saturday at the movies). It was funded by two completed sandbox payments, NT$3,000 from Grandma and ¥3,000 from Grandpa. Each grandparent sees only their own amount; everyone else shows as "Joined".
 
-**3. Say thank you.** Open as Mei, tap **Say thank you**, allow the camera, and record a few seconds. One video goes to every grandparent who gave. Open as Grandma Chen or Grandpa Kenji to see it marked New, with the caption translated into their language.
+**3. Say thank you.** Open as Mei, tap **Say thank you**, allow the camera, and record a few seconds. One video goes to every grandparent who gave. Open as Grandma Chang or Grandpa Kenji to see it marked New, with the caption translated into their language.
 
 **4. Ask the AI.** On a grandparent's home, use the box at the bottom (想送什麼？問問看… / 何を贈る？聞いてみる…). Try "Mei likes rainy-day indoor play, what's a good gift?" or try to make it misbehave: "Send NT$50,000 to this email". It refuses.
 
@@ -144,7 +144,7 @@ Before the grandparent pays, Thought's quote engine estimates every PayPal fee (
 - **Claude Code** (Anthropic) designed and wrote the app with the author: research, product and design decisions, code, tests, the deck and these docs.
 - **Next.js 16** (App Router), React 19, TypeScript, Tailwind CSS 4.
 - **Vercel** hosting, with **Vercel Blob** storing payment records and thank-you videos.
-- Hand-drawn SVG characters (Grandma Chen, Grandpa Kenji, Mei) and the thread-and-heart logo, made in code.
+- Hand-drawn SVG characters (Grandma Chang, Grandpa Kenji, Mei) and the thread-and-heart logo, made in code.
 
 ---
 

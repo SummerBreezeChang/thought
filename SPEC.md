@@ -19,13 +19,13 @@
 ## Decided
 - **SheBuilds (Lovable): accepted.** Track: Build Something for Your Family.
 - **Build approach (Nov 10): Next.js, built here with Claude Code. No Lovable.** Minimal, Apple-like design; PayPal blue is the one color moment. This replaces the Lovable + Claude Code plan, so this build isn't a Lovable project for SheBuilds.
-- **Hero story:** Grandma Chen NT$3,000 + Grandpa Kenji ¥3,000 fund the $100 Saturday at the movies (≈ $104 received).
+- **Hero story:** Grandma Chang NT$3,000 + Grandpa Kenji ¥3,000 fund the $100 Saturday at the movies (≈ $104 received).
 - **Thank-you loop:** Mei records a video thank-you in the browser; her words are translated for the grandparent.
 
 ## Decisions waiting on you
 1. AI key: your own key (Vercel AI Gateway or Anthropic), so it works locally and in Lovable.
 
-**Decided Nov 10:** estimates use live market rates from open.er-api.com (free, no key, daily), cached 1 hour, falling back to fixed demo rates if it's down. Back-test on Chen's real capture: estimate US$83.50 vs PayPal US$84.07 (was US$85.97 on the demo rate).
+**Decided Nov 10:** estimates use live market rates from open.er-api.com (free, no key, daily), cached 1 hour, falling back to fixed demo rates if it's down. Back-test on Chang's real capture: estimate US$83.50 vs PayPal US$84.07 (was US$85.97 on the demo rate).
 
 ## Setup only you can do
 In the PayPal Developer Dashboard (sandbox):

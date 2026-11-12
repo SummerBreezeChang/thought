@@ -6,7 +6,7 @@ import { Logo } from "@/components/th/logo";
 import { resetDemo } from "./actions";
 
 const PEOPLE: { href: string; character: Who; who: string; where: string }[] = [
-  { href: "/give/m-chen", character: "chen", who: "Grandma Chen", where: "Taipei · 繁體中文 · NT$" },
+  { href: "/give/m-chen", character: "chen", who: "Grandma Chang", where: "Taipei · 繁體中文 · NT$" },
   { href: "/give/m-kenji", character: "kenji", who: "Grandpa Kenji", where: "Tokyo · 日本語 · ¥" },
   { href: "/mei", character: "mei", who: "Mei, 6", where: "San Francisco · English" },
 ];

@@ -350,7 +350,7 @@ SUPABASE_URL= / SUPABASE_ANON_KEY= / SUPABASE_SERVICE_ROLE_KEY=   # service role
 | Account | Type | Country | Role |
 |---|---|---|---|
 | Thought | Business | US | Merchant + payout sender. Set auto-convert to USD; fund it for payouts. |
-| Grandma Chen | Personal | Taiwan | Payer (TWD) |
+| Grandma Chang | Personal | Taiwan | Payer (TWD) |
 | Grandpa Kenji | Personal | Japan | Payer (JPY) |
 | Mamie Claire | Personal | France | Payer (EUR) |
 | Lin | Personal | US | Payout receiver |

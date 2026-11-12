@@ -40,7 +40,7 @@ test("Classic amount only in the culture's own currency", () => {
   assert.equal(classicAmount("zh-TW", 6, "JPY"), null);
 });
 
-test("Grandma Chen's options for the $100 movie include NT$3,000", () => {
+test("Grandma Chang's options for the $100 movie include NT$3,000", () => {
   const s = suggestGoalAmounts("zh-TW", twd(3487), 6);
   assert.deepEqual(s.map((x) => x.amount.minor), [1200, 3000, 3600]);
 });

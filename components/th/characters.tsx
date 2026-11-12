@@ -68,7 +68,7 @@ function Cheeks({ y }: { y: number }) {
   );
 }
 
-function Chen({ mood }: { mood: Mood }) {
+function Chang({ mood }: { mood: Mood }) {
   return (
     <>
       <path d="M13 100C15 77 31 69 50 69s35 8 37 31Z" fill={CLOTHES.chen} />
@@ -191,7 +191,7 @@ export function Portrait({
       </defs>
       <g clipPath={`url(#${id})`}>
         <rect width={100} height={100} fill={BG[who]} />
-        {who === "chen" ? <Chen mood={mood} /> : who === "kenji" ? <Kenji mood={mood} /> : <Mei mood={mood} waving={waving} />}
+        {who === "chen" ? <Chang mood={mood} /> : who === "kenji" ? <Kenji mood={mood} /> : <Mei mood={mood} waving={waving} />}
       </g>
     </svg>
   );

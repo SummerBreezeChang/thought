@@ -33,7 +33,7 @@ Skip slide 4 (the California numbers) in the video; it's for judges reading the 
 
 **Slide 2, "It's 9 p.m. in Taipei"**
 
-> Meet Grandma Chen. She lives in Taipei. Her granddaughter Mei lives in San Francisco.
+> Meet Grandma Chang. She lives in Taipei. Her granddaughter Mei lives in San Francisco.
 >
 > Last year, for Mei's birthday, Grandma sent a wire transfer. Fees nobody explained, and no idea where the money went.
 >
@@ -65,7 +65,7 @@ Skip slide 4 (the California numbers) in the video; it's for judges reading the 
 
 ## 3. Demo: the live app (1:00–2:25)
 
-**Start page → "Open as Grandma Chen"**
+**Start page → "Open as Grandma Chang"**
 
 > This is Grandma's side. Everything is in Chinese, her language.
 
@@ -91,7 +91,7 @@ Skip slide 4 (the California numbers) in the video; it's for judges reading the 
 
 > Mei sees one gift from both of them. She records one little thank-you… and the heart goes back to both.
 
-**Back → "Open as Grandma Chen": Mei waving, 新的 (New) → press play**
+**Back → "Open as Grandma Chang": Mei waving, 新的 (New) → press play**
 
 > On Grandma's phone, it's waiting, translated into Chinese, calling her 阿嬤, the way Mei does.
 >

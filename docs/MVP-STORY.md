@@ -46,16 +46,16 @@ Parents keep asking for experiences, memberships and time together instead.
 
 ## The MVP: one Saturday, end to end
 
-**Hero gift:** "Saturday at the movies with Mom" (a $100 Regal gift card), pooled by Grandma Chen (Taipei, TWD) and Grandpa Kenji (Tokyo, JPY).
+**Hero gift:** "Saturday at the movies with Mom" (a $100 Regal gift card), pooled by Grandma Chang (Taipei, TWD) and Grandpa Kenji (Tokyo, JPY).
 **Second gift:** a Saturday at the Exploratorium (family membership $239), shown as a goal we fulfill by hand, clearly labeled.
 
 | Step | Who | What they see | Behind it |
 |---|---|---|---|
 | 1 | Lin (parent) | Adds two hints: "Mei loves dinosaur movies", "Saturdays work" | Hints, not a wish list |
-| 2 | Grandma Chen | Opens Lin's LINE invite in 繁體中文 (Traditional Chinese); one code to sign in | Language and currency come from the invite |
-| 3 | Grandma Chen | Home: Mei's face, one button 送禮物 ("Send a gift") | |
-| 4 | Grandma Chen | Asks in Chinese; gets 3 care gifts for Mei this month, each explained in Chinese | AI concierge reads Lin's hints and the catalog |
-| 5 | Grandma Chen | Picks "Saturday movie with Mom"; pays NT$3,000; sees the cost receipt (family receives ≈ $85.97); records a voice note | PayPal Checkout in TWD; fee engine |
+| 2 | Grandma Chang | Opens Lin's LINE invite in 繁體中文 (Traditional Chinese); one code to sign in | Language and currency come from the invite |
+| 3 | Grandma Chang | Home: Mei's face, one button 送禮物 ("Send a gift") | |
+| 4 | Grandma Chang | Asks in Chinese; gets 3 care gifts for Mei this month, each explained in Chinese | AI concierge reads Lin's hints and the catalog |
+| 5 | Grandma Chang | Picks "Saturday movie with Mom"; pays NT$3,000; sees the cost receipt (family receives ≈ $85.97); records a voice note | PayPal Checkout in TWD; fee engine |
 | 6 | Grandpa Kenji | Gets a note in Japanese ("Mei's movie is 86% there"), adds ¥3,000, the usual お年玉 for a 6-year-old (≈ $18.11); the $100 goal is reached | PayPal Checkout in JPY |
 | 7 | Lin | One tap: "Yes, this Saturday" | Parent hint, not a veto |
 | 8 | Thought | The AI agent buys the Regal card through PayPal | Agentic purchase (or a labeled simulation, see Day-1 spike) |
@@ -66,7 +66,7 @@ Parents keep asking for experiences, memberships and time together instead.
 
 | Who | Pays | PayPal fees | Conversion | Family receives |
 |---|---|---|---|---|
-| 阿嬤 Chen | NT$3,000 | NT$164 | $2.66 | ≈ $85.97 |
+| 阿嬤 Chang | NT$3,000 | NT$164 | $2.66 | ≈ $85.97 |
 | おじいちゃん Kenji | ¥3,000 | ¥199 | $0.56 | ≈ $18.11 |
 | **Together** | | | | **≈ $104.08** (goal $100) |
 
